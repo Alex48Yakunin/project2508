@@ -19,15 +19,17 @@ class Product
         $query = "SELECT product_id, title, description, image, price, category_id, collection FROM products WHERE product_id=$id";
         $result = $mysqli->query($query);
 
-        $product_data = $result->fetch_assoc();
+        if ($result->num_rows > 0) {
+            $product_data = $result->fetch_assoc();
 
-        $this->id = $product_data['product_id'];
-        $this->title = $product_data['title'];
-        $this->description = $product_data['description'];
-        $this->image = $product_data['image'];
-        $this->price = $product_data['price'];
-        $this->category_id = $product_data['category_id'];
-        $this->collection = $product_data['collection'];
+            $this->id = $product_data['product_id'];
+            $this->title = $product_data['title'];
+            $this->description = $product_data['description'];
+            $this->image = $product_data['image'];
+            $this->price = $product_data['price'];
+            $this->category_id = $product_data['category_id'];
+            $this->collection = $product_data['collection'];
+        }
     }
 
     public static function getAll()
@@ -52,16 +54,16 @@ class Product
         $query = "SELECT product_id FROM products WHERE collection=$collection";
         $result = $mysqli->query($query);
 
-        $productsByCollection = [];
+        $products = [];
         while ($product_data = $result->fetch_assoc()) {
-            $productsByCollection[] = new self($product_data['product_id']);
+            $products[] = new self($product_data['product_id']);
         }
 
-        return $productsByCollection;
+        return $products;
     }
 }
 
-// $product = new Product(1);
+// $product = new Product(90);
 // echo '<pre>';
 // var_dump($product);
 // echo '<hr>';
@@ -69,6 +71,6 @@ class Product
 // echo '<pre>';
 // var_dump($products);
 // echo '<hr>';
-// $productsByCollection = Product::getAllByCollection(1);
+// $products = Product::getAllByCollection(1);
 // echo '<pre>';
-// var_dump($productsByCollection);
+// var_dump($products);
