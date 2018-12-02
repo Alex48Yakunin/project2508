@@ -10,8 +10,12 @@
 .footer__item {
     flex: 1 1 33.333333%;
 }
+
 .footer__item:first-of-type {
     margin-right: 140px;
+}
+.footer__item:last-of-type {
+    text-align: center;
 }
 
 .footer__item-title {
@@ -29,7 +33,7 @@
 .footer__social {
     display: flex;
     padding-top: 25px;
-    padding-left: 60px;
+    justify-content: center;
 }
 
 .footer__social-link {
