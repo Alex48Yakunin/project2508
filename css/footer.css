@@ -1,0 +1,50 @@
+.footer {
+    display: flex;
+    padding-bottom: 65px;
+}
+
+.footer__item-link {
+    display: block;
+}
+
+.footer__item {
+    flex: 1 1 33.333333%;
+}
+.footer__item:first-of-type {
+    margin-right: 140px;
+}
+
+.footer__item-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.footer__item-link {
+    color: #6e6d6d;
+    margin-bottom: 5px;
+}
+
+
+.footer__social {
+    display: flex;
+    padding-top: 25px;
+    padding-left: 60px;
+}
+
+.footer__social-link {
+    padding: 15px;
+    margin-right: 10px;
+}
+
+.footer__social-link_tw {
+    background: url(../images/icons/twitter.svg) center center/contain no-repeat;
+}
+
+.footer__social-link_fac {
+    background: url(../images/icons/facebook.svg) center center/contain no-repeat;
+}
+
+.footer__social-link_inst {
+    background: url(../images/icons/instagram.svg) center center/contain no-repeat;
+}
