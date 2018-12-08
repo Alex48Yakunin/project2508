@@ -25,14 +25,13 @@ class Size
     public static function getAll($product_id = false)
     {
         global $mysqli;
- 
-        $conditions = "";
-        
-        if ($conditions !== false) {
-            $conditions .= " AND product_id = $product_id"; 
+         
+        if ($product_id !== false) {
+            $query = "SELECT size_id FROM product_sizes WHERE product_id = $product_id";
+        } else {
+            $query = "SELECT size_id FROM sizes";
         }
         
-        $query = "SELECT size_id FROM product_sizes WHERE 1 $conditions";
         $result = $mysqli->query($query);
  
         $sizes = [];
