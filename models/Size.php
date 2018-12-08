@@ -22,11 +22,17 @@ class Size
         }
     }
  
-    public static function getAll()
+    public static function getAll($product_id = false)
     {
         global $mysqli;
  
-        $query = "SELECT size_id FROM sizes";
+        $conditions = "";
+        
+        if ($conditions !== false) {
+            $conditions .= " AND product_id = $product_id"; 
+        }
+        
+        $query = "SELECT size_id FROM product_sizes WHERE 1 $conditions";
         $result = $mysqli->query($query);
  
         $sizes = [];
@@ -37,4 +43,9 @@ class Size
         return $sizes;
     }
 	
+    
 }
+
+// $sizes = Size::getAll(3);
+// echo '<pre>';
+// var_dump($sizes);

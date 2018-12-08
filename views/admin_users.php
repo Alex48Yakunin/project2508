@@ -1,5 +1,5 @@
 <?php 
-    $title = 'Пользователи';
+    $admin_page_title = 'Пользователи';
 ?>
 
 <?php require_once "../templates/admin_header.php" ?>
