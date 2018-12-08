@@ -3,18 +3,17 @@
 <section>
     <div class="product">
         <div class="product__img">
-            <img src="../images/picture/9.jpg" alt="" class="product__img-pic">
+            <img src="../images/picture/<?php echo $product->image;?>" alt="" class="product__img-pic">
         </div>
     </div>
 </section>
 <section>
     <div class="product">
         <div class="product__desc">
-            <h2 class="product__desc-title">кеды с полоской</h2>
-            <div class="product__desc-cost">4500 руб.</div>
+            <h2 class="product__desc-title"><?php echo $product->title;?></h2>
+            <div class="product__desc-cost"><?php echo $product->price;?></div>
             <p class="product__desc-text">
-                Отличные кеды из водонепроницаемого материала. Отлично подходят 
-                для любой погоды. Приятно сидят на ноге, стильные и комфортные.
+            <?php echo $product->description;?>
             </p>
             <div class="product__desc-size">
                 <div class="product__size-title">Размер</div>
