@@ -67,8 +67,8 @@ class Order
 // echo '<hr>';
 
 // $orders = Order::getAll();
-// var_dump($orders);
-// echo '<hr>';
+// var_dump($orders[0]->id);
+// echo $orders[0]->id;
 
 // $orders_status = Order::getAllStatus(1);
 // var_dump($orders_status);
