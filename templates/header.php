@@ -15,7 +15,7 @@
         <nav class="wrapper-inner">
             <div class="header-nav">
                 <div class="header-nav__item">
-                    <a href="" class="header-nav__link header-nav__logo"></a>
+                    <a href="../views/test.php" class="header-nav__link header-nav__logo"></a>
                     <a href="" class="header-nav__link">Женщинам</a>
                     <a href="" class="header-nav__link">Мужчинам</a>
                     <a href="" class="header-nav__link">Детям</a>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="header-nav__item">
                     <a href="" class="header-nav__link header-nav__link_come">Войти</a>
-                    <a href="" class="header-nav__link header-nav__link_cart">
+                    <a href="../views/cart.php" class="header-nav__link header-nav__link_cart">
                         Корзина
                         <span class="header-nav__cart-count">(0)</span>
                     </a>

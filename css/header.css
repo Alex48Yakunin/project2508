@@ -10,9 +10,15 @@
 }
 
 .header-nav__logo {
-    padding: 20px;
-    background: url(../images/icons/logo.jpg) center center / contain no-repeat;
+    padding: 25px;
+    background: url(../images/icons/logo1.svg) center center / contain no-repeat;
     margin-right: 55px;
+    transition: 1s all;
+
+}
+
+.header-nav__logo:hover {
+    background: url(../images/icons/logo2.svg) center center / contain no-repeat; 
 }
 
 .header-nav__item:last-child {
@@ -25,10 +31,15 @@
 .header-nav__link_come:after {
     position: absolute;
     content: "";
-    background: url(../images/icons/icon_1.png) center center / contain no-repeat;
+    background: url(../images/icons/user1.svg) center center / contain no-repeat;
     padding: 15px;
-    left: -30px;
+    left: -32px;
     top: -6px;
+    transition: 0.05s all;
+}
+
+.header-nav__link_come:hover:after {
+    background: url(../images/icons/user2.svg) center center / contain no-repeat;  
 }
 
 .header-nav__link_cart {
@@ -38,8 +49,13 @@
 .header-nav__link_cart:after {
     position: absolute;
     content: "";
-    background: url(../images/icons/icon_2.png) center center / contain no-repeat;
+    background: url(../images/icons/cart.svg) center center / contain no-repeat;
     padding: 15px;
-    left: -30px;
+    left: -32px;
     top: -6px;
+    transition: 0.5s all;
+}
+
+.header-nav__link_cart:hover:after {
+    transform: scaleX(-1);
 }
