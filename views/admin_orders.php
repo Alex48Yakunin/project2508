@@ -1,5 +1,5 @@
 <?php 
-    $title = 'Заказы';
+    $admin_page_title = 'Заказы';
 ?>
 <?php require_once "../templates/admin_header.php" ?> 
 
