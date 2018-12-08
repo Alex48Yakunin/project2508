@@ -29,11 +29,19 @@ class Order
 
     }
 
-    public static function getAll()
+    public static function getAll($status = false, $user_id = false)
     {
+        $condition = "";
+        if ($status !== false){
+            $condition.= " AND status=$status"; 
+        }
+        if ($user_id !== false){
+            $condition.= " AND user_id=$user_id";
+        }
+       
         global $mysqli;
 
-        $query = "SELECT order_id FROM orders";
+        $query = "SELECT order_id FROM orders WHERE 1 $condition";
         $result = $mysqli->query($query);
 
         $orders = [];
@@ -44,31 +52,12 @@ class Order
         return $orders;
     }
 
-    public static function getAllStatus($status)
-    {
-        global $mysqli;
-
-        $query = "SELECT order_id FROM orders WHERE status = $status";
-        $result = $mysqli->query($query);
-
-        $orders_status = [];
-        while ($order_data = $result->fetch_assoc()) {
-            $orders_status[] = new self($order_data['order_id']);
-        }
-
-        return $orders_status;
-    }
-
-
 }
 
 // $order = new Order(1);
 // var_dump($order);
 // echo '<hr>';
 
-// $orders = Order::getAll();
-// var_dump($orders[0]->id);
-// echo $orders[0]->id;
+// $orders = Order::getAll(false,0);
+// var_dump($orders);
 
-// $orders_status = Order::getAllStatus(1);
-// var_dump($orders_status);
