@@ -1,25 +1,15 @@
 /*  font-family: 'Roboto Condensed', sans-serif;    */
-*{
-    margin: 0;
-}
-.footer-header{
-    height: 60px;
-    background: green;
-}
-.main-page-wrapper{
-    margin: 0 auto;
-    max-width: 1490px;
-}
+
 .main-page-zag{
     display: flex;
     flex-flow: column;
     align-items: center;
     box-sizing: border-box;
-    padding: 135px 0 55px;
+    padding: 100px 0 55px;
 }
 .main-page-zag h1{
     font-family: Myriad Pro;
-    font-size: 68px;
+    font-size: 65px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 8px;
@@ -28,7 +18,7 @@
 }
 .main-page-zag p{
     font-family: georgia;
-    font-size: 26px;
+    font-size: 24px;
     font-style: italic;
     letter-spacing: 1px;
     color: rgba(51, 51, 51, 0.75);
@@ -92,7 +82,7 @@
 }
 .col h2{
     color: white;
-    font-size: 25px;
+    font-size: 23px;
     letter-spacing: 1px;
     font-weight: 400;
     font-family: 'Roboto Condensed', sans-serif;
@@ -101,7 +91,7 @@
 }
 .col p{
     color: rgba(255, 255, 255, 0.85);
-    font-size: 18px;
+    font-size: 15px;
     font-style: italic;
     letter-spacing: 4px;
     font-weight: 400;
@@ -205,7 +195,7 @@
     flex-flow: column;
     align-items: center;
     box-sizing: border-box;
-    padding: 230px 0;
+    padding: 215px 0 0;
 }
 .main-page-distribution h1{
     font-family: Myriad Pro;
