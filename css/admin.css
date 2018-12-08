@@ -1,0 +1,62 @@
+nav{
+    color: white;
+}
+#login_user_name{
+    margin: 0px 10px 0 5px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.wrapper{
+    max-width: 1366px;
+    margin: 0 auto;
+}
+#order-date{
+    margin-right: 10px;
+}
+#order-time{
+    margin-left: 10px;
+    color: red;
+}
+#order-basket{
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 20px;
+    background: white;
+    
+}
+#product-description{
+    align-items: center;
+}
+#product-img{
+    width: 64px;
+    height: 64px;
+    margin: 0 30px;
+}
+#product-cost{
+    color: red;
+}
+#order-status-select{
+    max-width: 800px;
+    margin: 0 auto;
+}
+#order-status-select p{
+    color: black;
+}
+#order-status{
+    font-size: 18px;
+    color: red;
+}
+.users_h2{
+    font-size: 22px;
+}
+.user{
+    max-width: 600px;
+    margin: 0 auto;
+}
+.user img{
+    width: 64px;
+    height: 64px;
+}
