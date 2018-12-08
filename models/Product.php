@@ -32,17 +32,25 @@ class Product
         }
     }
 
-    public static function getAll($collection = false, $category_id = false)
+    public static function getAll($collection = false, $category_id = false, $order_id = false)
     {
         global $mysqli;
 
         $conditions = "";
+        $tables = "products p";
 
         if ($collection !== false) {
-            $conditions .= " AND collection=$collection";
+            $conditions .= " AND p.collection=$collection";
+        }
+        if ($category_id !== false) {
+            $conditions .= " AND p.category_id=$category_id";
+        }
+        if ($order_id !== false) {
+            $tables .= ", order_products op";
+            $conditions .= " AND op.order_id=$order_id AND op.product_id=p.product_id";
         }
 
-        $query = "SELECT product_id FROM products WHERE 1 $conditions";
+        $query = "SELECT p.product_id FROM $tables WHERE 1 $conditions";
         $result = $mysqli->query($query);
 
         $products = [];
@@ -58,7 +66,7 @@ class Product
 // echo '<pre>';
 // var_dump($product);
 // echo '<hr>';
-// $products = Product::getAll(2);
+// $products = Product::getAll(false, false, 1);
 // echo '<pre>';
 // var_dump($products);
 // echo '<hr>';
