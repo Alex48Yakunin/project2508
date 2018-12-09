@@ -235,8 +235,6 @@
             </div>
 
 
-
-
             <div class="basket-oplata-btn">
                 <button>Заказать</button>
             </div>
