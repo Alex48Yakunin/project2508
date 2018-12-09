@@ -10,10 +10,14 @@
 <section>
     <div class="product">
         <div class="product__desc">
-            <h2 class="product__desc-title"><?php echo $product->title;?></h2>
-            <div class="product__desc-cost"><?php echo $product->price;?></div>
+            <h2 class="product__desc-title">
+                <?php echo $product->title;?>
+            </h2>
+            <div class="product__desc-cost">
+                <?php echo $product->price;?>
+            </div>
             <p class="product__desc-text">
-            <?php echo $product->description;?>
+                <?php echo $product->description;?>
             </p>
             <div class="product__desc-size">
                 <div class="product__size-title">Размер</div>
