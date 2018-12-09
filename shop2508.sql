@@ -160,7 +160,7 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `pass` varchar(32) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
