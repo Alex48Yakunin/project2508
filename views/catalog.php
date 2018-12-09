@@ -3,9 +3,8 @@ require_once '../templates/header.php'; ?>
 
 <!-- breadcrumps -->
 
-<!-- поменять на переменную - название коллекции -->
 <div class="title">
-    <h1>МУЖЧИНАМ</h1>
+    <h1><?php echo $collection_id->title?></h1>
     <p>Все товары</p>
 </div>
 
@@ -14,11 +13,11 @@ require_once '../templates/header.php'; ?>
 <div class="products">
     <?php
     foreach ($products as $product) {
-        echo '<div class="products-item">
+        echo '<a href="../controllers/product.php?product_id='.$product->id.'" class="products-item">
                 <div class="products-item-photo" style="background-image: url(../images/picture/'.$product->image.')"></div>
                 <p class="products-item-title">'.$product->title.'</p>
                 <p class="products-item-price">'.$product->price.'</p>
-            </div>';
+            </a>';
         
     } 
     ?>

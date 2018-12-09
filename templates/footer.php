@@ -3,15 +3,15 @@
     <div class="footer">
         <div class="footer__item">
             <div class="footer__item-title">Коллекции</div>
-            <a class="footer__item-link" href="">
+            <a class="footer__item-link" href="../controllers/catalog.php?collection=1">
                 Женщинам
                 <span class="footer__link-count">(1725)</span>
             </a>
-            <a class="footer__item-link" href="">
+            <a class="footer__item-link" href="../controllers/catalog.php?collection=2">
                 Мужчинам
                 <span class="footer__link-count">(635)</span>
             </a>
-            <a class="footer__item-link" href="">
+            <a class="footer__item-link" href="../controllers/catalog.php?collection=3">
                 Детям
                 <span class="footer__link-count">(2514)</span>
             </a>

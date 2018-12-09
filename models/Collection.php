@@ -7,15 +7,15 @@ class Collection
 
     public static $data = [
         [
-            'title' => 'женщинам',
+            'title' => 'Женщинам',
             'id' => 1
         ],
         [
-            'title' => 'мужчинам',
+            'title' => 'Мужчинам',
             'id' => 2
         ],
         [
-            'title' => 'детям',
+            'title' => 'Детям',
             'id' => 3
         ],
     ];
@@ -43,8 +43,8 @@ class Collection
 
 
 
-$Collection = new Collection(1);
-var_dump($Collection);
-echo '<hr>';
-$Collection = Collection::getAll();
-var_dump($Collection);
+// $Collection = new Collection(1);
+// var_dump($Collection);
+// echo '<hr>';
+// $Collection = Collection::getAll();
+// var_dump($Collection);
