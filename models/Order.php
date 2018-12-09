@@ -51,6 +51,20 @@ class Order
         return $orders;
     }
 
+    public static function getStatusName($status)
+    {
+        $statusName = '';
+        switch ($status) {
+            case 0: $statusName = 'Ожидает подтверждения'; break;
+            case 1: $statusName = 'Подтвержден'; break;
+            case 2: $$statusName = 'Оплачен'; break;
+            case 3: $statusName = 'В пути'; break;
+            case 4: $statusName = 'Доставлен'; break;
+            case 5: $statusName = 'Исполнен'; break;
+        }
+        return $statusName;
+    }
+
     public function updateStatus($status)
     {
         if((is_numeric($status) !== false) && ($status>=0) && ($status<=5)) {
@@ -82,3 +96,7 @@ class Order
 // $order->updateStatus(3);
 // echo '<pre>';
 // var_dump($order);
+
+// $orders = Order::getStatusName(3);
+// echo '<pre>';
+// var_dump($orders);
