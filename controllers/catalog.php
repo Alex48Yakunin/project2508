@@ -8,4 +8,7 @@ require_once '../models/Product.php';
 $site_page_title = 'Каталог товаров';
 $products = Product::getAll($collection, $category_id, $order_id);
 
+require_once '../models/Collection.php';
+$collection_id = new Collection($collection);
+
 require_once '../views/catalog.php';

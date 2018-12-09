@@ -16,10 +16,10 @@
         <nav class="wrapper-inner">
             <div class="header-nav">
                 <div class="header-nav__item">
-                    <a href="../views/test.php" class="header-nav__link header-nav__logo"></a>
-                    <a href="" class="header-nav__link">Женщинам</a>
-                    <a href="" class="header-nav__link">Мужчинам</a>
-                    <a href="" class="header-nav__link">Детям</a>
+                    <a href="../controllers/main_page.php" class="header-nav__link header-nav__logo"></a>
+                    <a href="../controllers/catalog.php?collection=1" class="header-nav__link">Женщинам</a>
+                    <a href="../controllers/catalog.php?collection=2" class="header-nav__link">Мужчинам</a>
+                    <a href="../controllers/catalog.php?collection=3" class="header-nav__link">Детям</a>
                     <a href="" class="header-nav__link">Новинки</a>
                     <a href="" class="header-nav__link">О нас</a>
                 </div>
