@@ -18,11 +18,11 @@
             <div class="product__desc-size">
                 <div class="product__size-title">Размер</div>
                 <div class="product__size-views">
-                    <a href="" class="product__views-link">38</a>
-                    <a href="" class="product__views-link">39</a>
-                    <a href="" class="product__views-link">40</a>
-                    <a href="" class="product__views-link">41</a>
-                    <a href="" class="product__views-link">42</a>
+                    <?php 
+                    foreach($sizes as $size) {
+                            echo '<a href="" class="product__views-link">' . $size->value . '</a>';
+                        }                       
+                        ?>
                 </div>
             </div>
             <div class="product__desc-button">
