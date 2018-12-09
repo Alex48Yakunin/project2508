@@ -10,6 +10,14 @@ class Order
     public $comment;
     public $user_id;
 
+    public static $statuses = [
+        'Ожидает подтверждения',
+        'Подтвержден',
+        'Оплачен',
+        'В пути',
+        'Доставлен',
+        'Исполнен'
+    ];
 
     public function __construct($id)
     {
@@ -51,7 +59,7 @@ class Order
         return $orders;
     }
 
-    public static function getStatusName($status)
+    public function getStatusName($status)
     {
         $statusName = '';
         switch ($status) {
