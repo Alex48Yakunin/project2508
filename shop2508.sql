@@ -2,12 +2,14 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost:3306
--- Время создания: Дек 02 2018 г., 13:30
--- Версия сервера: 5.7.23
--- Версия PHP: 7.2.8
+-- Хост: 127.0.0.1
+-- Время создания: Дек 09 2018 г., 08:10
+-- Версия сервера: 10.1.36-MariaDB
+-- Версия PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -108,11 +110,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `title`, `description`, `image`, `price`, `category_id`, `collection`) VALUES
-(1, 'Мяч', '123', '', 500, 1, 0),
-(2, 'Бейсбольная бита', '123', '', 1000, 1, 0),
-(3, 'Штанга', '123', '', 1200, 1, 0),
-(4, 'Гамак', '123', '', 1900, 2, 0),
-(5, 'Палатка', '123', '', 2500, 2, 0);
+(1, 'Мяч', '123', '1.jpg', 500, 1, 1),
+(2, 'Бейсбольная бита', '123', '2.jpg', 1000, 1, 1),
+(3, 'Штанга', '123', '3.png', 1200, 1, 2),
+(4, 'Гамак', '123', '4.jpg', 1900, 2, 2),
+(5, 'Палатка', '123', '5.jpg', 2500, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -268,6 +270,7 @@ ALTER TABLE `order_products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
