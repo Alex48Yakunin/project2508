@@ -15,9 +15,6 @@ a{
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -27,7 +24,7 @@ a{
 .products .products-item {
   border: 1px solid black;
   padding: 20px;
-  margin-top: 20px;
+  margin: 20px;
   -webkit-transition: .3s;
   transition: .3s;
 }
