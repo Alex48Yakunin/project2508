@@ -40,6 +40,22 @@ class User
 
         return $users;
     }
+
+    public static function getByEmail($email)
+    {
+        global $mysqli;
+
+        $query = "SELECT user_id FROM users WHERE email='$email'";
+        $result = $mysqli->query($query);
+
+        if($result->num_rows != 0) {
+            $user_data = $result->fetch_assoc();
+            $user = new self($user_data['user_id']);
+            return $user;
+        } else {
+            return false;
+        }        
+    }
 }
 
 // $user = new User(1);
@@ -47,3 +63,6 @@ class User
 // echo '<hr>';
 // $users = User::getAll();
 // var_dump($users);
+// $user = User::getByEmail('admin@admin.ru');
+// echo '<pre>';
+// var_dump($user);
