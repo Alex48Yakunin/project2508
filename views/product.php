@@ -10,19 +10,23 @@
 <section>
     <div class="product">
         <div class="product__desc">
-            <h2 class="product__desc-title"><?php echo $product->title;?></h2>
-            <div class="product__desc-cost"><?php echo $product->price;?></div>
+            <h2 class="product__desc-title">
+                <?php echo $product->title;?>
+            </h2>
+            <div class="product__desc-cost">
+                <?php echo $product->price;?>
+            </div>
             <p class="product__desc-text">
-            <?php echo $product->description;?>
+                <?php echo $product->description;?>
             </p>
             <div class="product__desc-size">
                 <div class="product__size-title">Размер</div>
                 <div class="product__size-views">
-                    <a href="" class="product__views-link">38</a>
-                    <a href="" class="product__views-link">39</a>
-                    <a href="" class="product__views-link">40</a>
-                    <a href="" class="product__views-link">41</a>
-                    <a href="" class="product__views-link">42</a>
+                    <?php 
+                    foreach($sizes as $size) {
+                            echo '<a href="" class="product__views-link">' . $size->value . '</a>';
+                        }                       
+                        ?>
                 </div>
             </div>
             <div class="product__desc-button">

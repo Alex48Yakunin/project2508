@@ -45,6 +45,6 @@ class Size
     
 }
 
-// $sizes = Size::getAll(3);
+// $sizes = Size::getAll(5);
 // echo '<pre>';
 // var_dump($sizes);
