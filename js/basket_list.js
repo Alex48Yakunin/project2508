@@ -36,15 +36,13 @@ $(document).ready(function () {
 
             if ($(this).parent().prev('.select-menu-header').children('.basket-select-card').length > 0) {
 
-                var img_for_changes = '';
+               
 
                 $(this).parent().prev('.select-menu-header').children("img.basket-select-card").remove();
 
                 $(this).children("img.basket-select-card").each(function () {
 
-                    img_for_changes = $(this).get(0);
-                    console.log($(this).get(0));
-                    console.log(img_for_changes);
+                   
                     $(this).clone(true).appendTo($(this).parent().parent().prev('.select-menu-header'));
 
                 });
