@@ -20,7 +20,6 @@ class Order
 
         $order_data = $result->fetch_assoc();
 
-        
         $this->id = $order_data['order_id'];
         $this->status = $order_data['status'];
         $this->address = $order_data['address'];
@@ -52,6 +51,24 @@ class Order
         return $orders;
     }
 
+    public function updateStatus($status)
+    {
+        if((is_numeric($status) !== false) && ($status>=0) && ($status<=5)) {
+            $this->status = $status;
+            $id = $this->id;
+            global $mysqli;
+            $query = "UPDATE orders SET status=$status WHERE order_id=$id";
+            $result = $mysqli->query($query);
+            if($result) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
 }
 
 // $order = new Order(1);
@@ -61,3 +78,7 @@ class Order
 // $orders = Order::getAll(false,0);
 // var_dump($orders);
 
+// $order = new Order(1);
+// $order->updateStatus(3);
+// echo '<pre>';
+// var_dump($order);
