@@ -242,6 +242,6 @@
         </div>
 
 
-<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../lib/jquery-3.3.1.js"></script>
 <script src="../js/basket_list.js"></script>
 <?php require_once "../templates/footer.php";?>

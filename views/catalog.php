@@ -1,5 +1,7 @@
 <?php 
-require_once '../templates/header.php'; ?>
+    require_once '../templates/header.php'; 
+?>
+
 
 <!-- breadcrumps -->
 
@@ -14,15 +16,16 @@ require_once '../templates/header.php'; ?>
 <div class="catalog-list">
     <div class="catalog-list-item">
         <div class="catalog-select">
-            <p>Категория</p>
+            <p id="category_text">Категория</p>
             <img src="../images/icon/down-arrow-select.png">
             <hr>
         </div>
         <div class="catalog-select-list">
-            <p class="catalog-select-list-row">Мужские</p>
-            <p class="catalog-select-list-row">Женские</p>
-            <p class="catalog-select-list-row">Детские</p>
-            <p class="catalog-select-list-row">Взрослые</p>
+            <?php 
+                foreach ($categories as $category) {
+                    echo '<p class="catalog-select-list-row">'.$category->title.'</p>';
+                }
+            ?>
         </div>
         
     </div>
@@ -34,9 +37,6 @@ require_once '../templates/header.php'; ?>
         </div>
         <div class="catalog-select-list">
             <p class="catalog-select-list-row catalog-size">M</p>
-            <p class="catalog-select-list-row catalog-size">S</p>
-            <p class="catalog-select-list-row catalog-size">L</p>
-            <p class="catalog-select-list-row catalog-size">L</p>
         </div>
     </div>
     <div class="catalog-list-item">
@@ -72,7 +72,7 @@ require_once '../templates/header.php'; ?>
     <div class="pages-item"> 2 </div>
 </div>
 
-<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../lib/jquery-3.3.1.js"></script>
 <script src="../js/catalog_list.js"></script>
 
 <?php require_once '../templates/footer.php'; ?>

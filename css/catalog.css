@@ -92,7 +92,6 @@ a{
     justify-content: space-between;
     align-items: center;
     min-width: 190px;
-    user-select: none;
     cursor: pointer;
     position: relative;
     user-select: none;
@@ -134,7 +133,7 @@ a{
     box-sizing: border-box;
     padding: 15px 10px;
     font-size: 16px;
-    height: 25px;
+    height: 30px;
     display: flex;
     align-items: center;
     cursor: pointer;
