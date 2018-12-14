@@ -1,13 +1,11 @@
 <?php 
-    $admin_page_title = 'Заказы';
+    $admin_page_title = 'Заказ№'.$order->id;
 ?>
 <?php require_once "../templates/admin_header.php" 
 ?> 
-        <h1 class="text-center mt-4 mb-4">Заказы</h1>
-        
-         <?php
-            foreach ($orders as $key => $order) {
-            
+       
+        <?php 
+                      
             echo(
             '<div class="container alert alert-success mb-4" id="orders">
             <div class="orders-item">
@@ -16,14 +14,39 @@
                     <div><span id="order-date">2018-10-01</span>/<span id="order-time">17:03</span></div>
                 </h2>
                 <h3 class="text-center mb-3" id="order-user_name">Сергей Дмитренко</h3>
-                <div class="row">
-                <p>Статус заказа: <span id="order-status">'.(($order->status == 0) ? 'Ожидается подтверждение' : 'Заказ подтвержден').'</span></p>
+                <div class="row row1">
+                    <div class="col-4">
+                        <p>Статус заказа: <span id="order-status">'.(($order->status == 0) ? 'Ожидается подтверждение' : 'Заказ подтвержден').'</span></p>
+                    </div>
+                <div class="col-8">
+                    <input class="btn btn-success" type="button" value="Сменить статус заказа">
+                </div>
                 </div>
                 <div class="row">
-                <p>Адрес заказа: <span id="order-status">'.$order->address.'</span></p>
+                    <div class="col-4">
+                        <p>Адрес заказа: <span id="order-status">'.$order->address.'</span></p>
+                    </div>
+                <div class="col-8">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Ввести новый адрес</span>
+                        </div>
+                            <input type="text" class="form-control" placeholder="Новый адрес" aria-label="Новый адрес" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                <p>Комментарии: <span id="order-status">'.(($order->comment == "") ? 'Нет комментариев' : $order->comment).'</span></p>
+                    <div class="col-4">
+                    <p>Комментарии: <span id="order-status">'.(($order->comment == "") ? 'Нет комментариев' : $order->comment).'</span></p>
+                </div>
+                <div class="col-8">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Заменить комментарий</span>
+                        </div>
+                            <input type="text" class="form-control" placeholder="Новый комментарий" aria-label="Новый комментарий" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
                 </div>
                 <div id="order-basket">
                    <!-- 1 товар -->
@@ -46,16 +69,13 @@
                     </div>
                 </div>
                 <div id="order-status-select" class="d-flex justify-content-center align-items-center mt-3">
-                <a class="btn btn-success" href="../controllers/admin_order.php?order_id='.$order->id.'" role="button">Перейти на страницу заказа</a> 
+                <a class="btn btn-success" href="../controllers/admin_orders.php" role="button">Вернуться к списку заказов</a> 
                 </div>
             </div>
         </div>'
-            );
-            }
-
+        );
+           
         ?>
-   
-        
+          
 <?php require_once "../templates/admin_footer.php" ?>
-
-
+ 
