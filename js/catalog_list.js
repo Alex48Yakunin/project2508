@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    
 
-    $('.catalog-select').click(function (catalog_menu) {
+
+    $('.catalog-select').click(function () {
 
         var menu_list = $(this).next('.catalog-select-list');
         var row = $(this).next('.catalog-select-list').children('.catalog-select-list-row');
@@ -45,7 +45,7 @@ $(document).ready(function () {
 
 
     });
-    
+
 
     $('.catalog-select-list-row').click(function () {
 
@@ -62,6 +62,5 @@ $(document).ready(function () {
         $('.catalog-list-item').css('pointer-events', 'painted');
 
     });
-    
-    
+
 });
