@@ -6,8 +6,9 @@
                     <p>Статус заказа:
                         <select name="" id="">
                             <?php
-                                foreach (Order::$statuses as $status) {
-                                    echo '<option>'.$status.'</option>';
+                                foreach (Order::$statuses as $key => $status) {
+                                    $selected = ($key == $order->status);
+                                    echo '<option '.($selected ? 'selected' : '').'>'.$status.'</option>';
                                 }
                             ?>
                         </select>
