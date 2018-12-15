@@ -11,13 +11,21 @@ $(document).ready(function () {
         return vars;
     }
 
-    var size_id = $('.product__views-link').dataset.sizeId; // получаем size_id
+
+    $('.product__views-link').click(function (e) {
+        event.preventDefault();
+        $(this).css({
+            color: white,
+            background: orangered
+        })
+        size_id = $(this).data['size-Id']; // получаем size_id
+    })
 
     $('.product__desc-button_link').click(function (event) {
         event.preventDefault();
         $.post('add_to_cart.php', {
-            product: product_id,
-            size: size_id
+            product_id: product_id,
+            size_id: size_id
         }, function (data) {
             if (Request.readyState == 4) {
                 alert('Товар добавлен в корзину');
