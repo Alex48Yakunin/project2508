@@ -61,15 +61,12 @@ class Order
 
     public function getStatusName()
     {
-        $statusName = '';
-        switch ($this->status) {
-            case 0: $statusName = 'Ожидает подтверждения'; break;
-            case 1: $statusName = 'Подтвержден'; break;
-            case 2: $statusName = 'Оплачен'; break;
-            case 3: $statusName = 'В пути'; break;
-            case 4: $statusName = 'Доставлен'; break;
-            case 5: $statusName = 'Исполнен'; break;
+        if(isset($this->status)) {
+            $statusName = self::$statuses[$this->status];
+        } else {
+            return false;
         }
+
         return $statusName;
     }
 
