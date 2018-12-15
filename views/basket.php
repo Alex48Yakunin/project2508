@@ -215,7 +215,7 @@
             <p class="form-text">Выберите способ оплаты</p>
 
             <div id="select-menu" class="basket-form-input">
-                <div class="select-menu-header select-menu-header">
+                <div class="select-menu-header">
                     <p id="select-menu-header-text">Банковская карта</p>
                     <img src="../images/icon/visa.png" id="basket-visa" class="basket-select-card">
                     <img src="../images/icon/mastercard.png" id="basket-mastercard" class="basket-select-card">
@@ -242,6 +242,6 @@
         </div>
 
 
-<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../lib/jquery-3.3.1.js"></script>
 <script src="../js/basket_list.js"></script>
 <?php require_once "../templates/footer.php";?>

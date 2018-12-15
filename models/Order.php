@@ -10,7 +10,8 @@ class Order
     public $comment;
     public $user_id;
 
-    public $statuses = [
+
+    public static $statuses = [
         'Ожидает подтверждения',
         'Подтвержден',
         'Оплачен',
@@ -59,6 +60,17 @@ class Order
         return $orders;
     }
 
+    public function getStatusName()
+    {
+        if(isset($this->status)) {
+            $statusName = self::$statuses[$this->status];
+        } else {
+            return false;
+        }
+
+        return $statusName;
+    }
+
     public function updateStatus($status)
     {
         if((is_numeric($status) !== false) && ($status>=0) && ($status<=5)) {
@@ -91,6 +103,6 @@ class Order
 // echo '<pre>';
 // var_dump($order);
 
-// $orders = Order::getStatusName(3);
+// $order = new Order(1);
 // echo '<pre>';
-// var_dump($orders);
+// var_dump($order->getStatusName());
