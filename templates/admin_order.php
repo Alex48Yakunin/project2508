@@ -4,7 +4,7 @@
                 <h3 class="text-center mb-3" id="order-user_name">Сергей Дмитренко</h3>
                 <div class="d-flex justify-content-center align-items-center mt-3">
                     <p>Статус заказа:
-                        <select name="status" id="select-status">
+                        <select name="status" id="select-status" data-order-id="<?php echo $order->id ?>">
                             <?php
                                 foreach (Order::$statuses as $key => $status) {
                                     $selected = ($key == $order->status);
