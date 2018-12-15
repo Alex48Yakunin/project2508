@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     var product_id = getUrlVars()["product_id"];
+    var size_id = $('.product__views-link:first-of-type').data['size-id'];
 
     function getUrlVars() {
         //извлекаем get параметр product_id
@@ -14,11 +15,9 @@ $(document).ready(function () {
 
     $('.product__views-link').click(function (e) {
         e.preventDefault();
-        $(this).css({
-            color: white,
-            background: orangered
-        })
-        size_id = $(this).data['size-Id']; // получаем size_id
+        $('.product__size-views').siblings('.product__views-link').removeClass('product__link-size');
+        $(this).addClass('product__link-size');
+        size_id = $(this).data['size-id']; // получаем size_id
     })
 
     $('.product__desc-button_link').click(function (event) {
