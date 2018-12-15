@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 
     $('.product__views-link').click(function (e) {
-        event.preventDefault();
+        e.preventDefault();
         $(this).css({
             color: white,
             background: orangered
