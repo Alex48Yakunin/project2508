@@ -2,7 +2,7 @@ $(document).ready(function() {
     console.log(1234);
 $('#select-status').change(function() {
     console.log(123);
-    var order_id = $(this).data('data-order-id');
+    var order_id = $(this).data('order-id');
     var status_id = $(this).val();
     var data = {
         order_id: order_id,
