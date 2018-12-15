@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var product_id = getUrlVars()["product_id"];
     var size_id = $('.product__views-link:first-of-type').data('size-id');
+    $('.product__views-link:first-of-type').addClass('product__link-size');
 
     function getUrlVars() {
         //извлекаем get параметр product_id
