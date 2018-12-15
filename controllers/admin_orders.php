@@ -16,5 +16,4 @@ if (isset($_GET['user_id']) && $_GET['user_id'] != "") {
 
 $orders = Order::getAll($status, $user_id);
 
-require_once "../views/admin_orders.php"; 
-
+require_once "../views/admin_orders.php";
