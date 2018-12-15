@@ -28,31 +28,6 @@ $(document).ready(function () {
             $(this).children('#select-menu-img').removeClass('select-menu-header-img-active');
         }
 
-        /////////////////    Замента текста на выбранный /////////////////////
-
-        $(this).next('#select-menu-list').children('.select-menu-row').click(function () {
-
-//////////////////////// Замена картинки////////////////////////////////
-
-            if ($(this).parent().prev('.select-menu-header').children('.basket-select-card').length > 0) {
-
-               
-
-                $(this).parent().prev('.select-menu-header').children("img.basket-select-card").remove();
-
-                $(this).children("img.basket-select-card").each(function () {
-
-                   
-                    $(this).clone(true).appendTo($(this).parent().parent().prev('.select-menu-header'));
-
-                });
-
-            }
-
-            $(this).parent().prev('.select-menu-header').children('#select-menu-header-text').text($(this).text());
-            menu_list.css('display', 'none');
-            $(this).parent().prev('.select-menu-header').children('#select-menu-img').removeClass('select-menu-header-img-active');
-        });
 
         /////////////////    Hover элементов списка  /////////////////////
 
@@ -62,7 +37,26 @@ $(document).ready(function () {
         $('.select-menu-row').mouseleave(function () {
             $(this).removeClass('select-menu-row-hover');
         });
-
-
+        
     });
+
+    
+    $('.select-menu-row').click(function () {
+
+        if ($(this).parent().prev('.select-menu-header').children('.basket-select-card').length > 0) {
+
+            $(this).parent().prev('.select-menu-header').children("img.basket-select-card").remove();
+
+            $(this).children("img.basket-select-card").each(function () {
+                $(this).clone(true).appendTo($(this).parent().parent().prev('.select-menu-header'));
+
+            });
+        }
+        
+        $(this).parent().prev('.select-menu-header').children('#select-menu-header-text').text($(this).text());
+        $(this).parent('#select-menu-list').css('display', 'none');
+        $(this).parent().prev('.select-menu-header').children('#select-menu-img').removeClass('select-menu-header-img-active');
+        
+    });
+
 });
