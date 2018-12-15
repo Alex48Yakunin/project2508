@@ -8,10 +8,4 @@ require_once '../models/Product.php';
 $site_page_title = 'Каталог товаров';
 $products = Product::getAll($collection, $category_id, $order_id);
 
-require_once '../models/Collection.php';
-$collection_id = new Collection($collection);
-
-require_once '../models/Category.php';
-$categories = Category::getAll(); 
-
 echo json_encode($products);
