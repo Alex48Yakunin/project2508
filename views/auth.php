@@ -30,19 +30,19 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
                             placeholder="Введите email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="pass" placeholder="Пароль">
                     </div>
                     <button type="submit" class="btn btn-primary">Войти</button>
                 </form>
             </div>
         </section>
     </main>
-    <footer class="wrapper-inner">
+    <!-- <footer class="wrapper-inner">
         <div class="footer">
             <div class="footer__item">
                 <div class="footer__item-title">Коллекции</div>
@@ -93,7 +93,10 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
+
+    <?php require_once "../templates/footer.php";?>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
