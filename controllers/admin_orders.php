@@ -16,4 +16,9 @@ if (isset($_GET['user_id']) && $_GET['user_id'] != "") {
 
 $orders = Order::getAll($status, $user_id);
 
+$postData = file_get_contents('php://input');
+$data = json_decode($postData, true);
+$status = $data['status_id'];
+
+
 require_once "../views/admin_orders.php";

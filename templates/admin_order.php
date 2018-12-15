@@ -4,11 +4,11 @@
                 <h3 class="text-center mb-3" id="order-user_name">Сергей Дмитренко</h3>
                 <div class="d-flex justify-content-center align-items-center mt-3">
                     <p>Статус заказа:
-                        <select name="" id="">
+                        <select name="status" id="select-status">
                             <?php
                                 foreach (Order::$statuses as $key => $status) {
                                     $selected = ($key == $order->status);
-                                    echo '<option '.($selected ? 'selected' : '').'>'.$status.'</option>';
+                                    echo '<option value="'.$key.'" '.($selected ? 'selected' : '').'>'.$status.'</option>';
                                 }
                             ?>
                         </select>
