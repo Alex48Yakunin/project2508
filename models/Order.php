@@ -10,6 +10,7 @@ class Order
     public $comment;
     public $user_id;
 
+
     public static $statuses = [
         'Ожидает подтверждения',
         'Подтвержден',
