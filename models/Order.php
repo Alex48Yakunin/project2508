@@ -59,13 +59,13 @@ class Order
         return $orders;
     }
 
-    public function getStatusName($status)
+    public function getStatusName()
     {
         $statusName = '';
-        switch ($status) {
+        switch ($this->status) {
             case 0: $statusName = 'Ожидает подтверждения'; break;
             case 1: $statusName = 'Подтвержден'; break;
-            case 2: $$statusName = 'Оплачен'; break;
+            case 2: $statusName = 'Оплачен'; break;
             case 3: $statusName = 'В пути'; break;
             case 4: $statusName = 'Доставлен'; break;
             case 5: $statusName = 'Исполнен'; break;
@@ -105,6 +105,6 @@ class Order
 // echo '<pre>';
 // var_dump($order);
 
-// $orders = Order::getStatusName(3);
+// $order = new Order(1);
 // echo '<pre>';
-// var_dump($orders);
+// var_dump($order->getStatusName());
