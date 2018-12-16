@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+$count_cart = count ($_SESSION['cart']);
+
 require_once "../models/Product.php";
 
 
