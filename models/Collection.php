@@ -7,15 +7,15 @@ class Collection
 
     public static $data = [
         [
-            'title' => 'Женщинам',
+            'title' => 'для женщин',
             'id' => 1
         ],
         [
-            'title' => 'Мужчинам',
+            'title' => 'для мужчин',
             'id' => 2
         ],
         [
-            'title' => 'Детям',
+            'title' => 'для детей',
             'id' => 3
         ],
     ];
