@@ -90,29 +90,31 @@ class Product
     {
         $id = $this->id;
         
-        $condition = '';
+        $condition = [];
         if($title != false) {
-            $condition .= ", p.title='$title'";
+            $condition[] = "p.title='$title'";
         }
         if($description != false) {
-            $condition .= ", p.description='$description'";
+            $condition[] = "p.description='$description'";
         }
         if($image != false) {
-            $condition .= ", p.image='$image'";
+            $condition[] = "p.image='$image'";
         }
         if($price != false) {
-            $condition .= ", p.price='$price'";
+            $condition[] = "p.price='$price'";
         }
         if($category_id != false) {
-            $condition .= ", p.category_id='$category_id'";
+            $condition[] = "p.category_id='$category_id'";
         }
         if($collection != false) {
-            $condition .= ", p.collection='$collection'";
+            $condition[] = "p.collection='$collection'";
         }
+
+        $condition = implode(",", $condition);
 
         global $mysqli;
 
-        $query = "UPDATE products p SET p.product_id=$id $condition WHERE p.product_id=$id";
+        $query = "UPDATE products p SET $condition WHERE p.product_id=$id";
         $result = $mysqli->query($query);
 
         if($result) {
@@ -138,7 +140,7 @@ class Product
 // $product = Product::add('Название', 'Описание', '1.jpg', 1000, 1, 1);
 // echo '<pre>';
 // var_dump($product);
-// $product = new Product(7);
-// $product->update('Название2', false, false, false, false, false);
+// $product = new Product(1);
+// $product->update('Название', 'Описание', false, false, false, false);
 // echo '<pre>';
 // var_dump($product);
