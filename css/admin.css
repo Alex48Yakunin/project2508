@@ -60,3 +60,16 @@ nav{
     width: 64px;
     height: 64px;
 }
+.row {
+    display: flex;
+    justify-content: space-around; 
+}
+
+.row1{
+    margin-bottom: 10px;
+}
+
+.text-betwen {
+    display: flex;
+    justify-content: space-between;
+}
