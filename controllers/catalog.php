@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+$count_cart = count ($_SESSION['cart']);
+
 $collection = (((isset($_GET['collection'])) && $_GET['collection'] !== "")?$_GET['collection']:false);
 $category_id = (((isset($_GET['category_id'])) && $_GET['category_id'] !== "")?$_GET['category_id']:false);
 $order_id = (((isset($_GET['order_id'])) && $_GET['order_id'] !== "")?$_GET['order_id']:false);

@@ -1,6 +1,5 @@
 <?php require_once "../templates/header.php";
-var_dump ($count_cart);
-var_dump($_SESSION);
+
 ?>
 
 <h2 class="card-heard">
@@ -15,64 +14,26 @@ var_dump($_SESSION);
 </div>
 
 <?php
-
+foreach ($cart_view as $key => $cart) {
+echo (
+'<div class="card-table-row">
+<div class="card-table-cell1">
+    <div class="product-image" style= "background: url(../images/catalog/'.$cart['image'].') center center / contain no-repeat" ></div>
+    <div class="product-block">
+        <div class="product-name">'.$cart['title'].' '.$cart['collection'].'</div>
+        <div class="product-describe">Размер '.$cart['size'].'</div>
+    </div>
+</div>
+<div class="card-table-cell2">'.$cart['price'].'</div>
+<div class="card-table-cell3">
+<input type="number" step="1" min="1" max="10" value="'.$cart['count'].'" id="count" name="count"/>
+</div>
+<div class="card-table-cell4">200</div>
+</div>'
+);
+}
 ?>
-<div class="card-table-row">
-    <div class="card-table-cell1">
-        <div class="product-image"></div>
-        <div class="product-block">
-            <div class="product-name">Трусы мужские</div>
-            <div class="product-describe">Размер 42. Цвет серый </div>
-        </div>
-    </div>
-    <div class="card-table-cell2">100</div>
-    <div class="card-table-cell3">
-    <input type="number" step="1" min="1" max="10" value="1" id="count" name="count"/>
-    </div>
-    <div class="card-table-cell4">200</div>
-</div>
-<div class="card-table-row">
-    <div class="card-table-cell1">
-        <div class="product-image"></div>
-        <div class="product-block">
-            <div class="product-name">Трусы мужские</div>
-            <div class="product-describe">Размер 42. Цвет серый </div>
-        </div>
-    </div>
-    <div class="card-table-cell2">100</div>
-    <div class="card-table-cell3">
-    <input type="number" step="1" min="1" max="10" value="1" id="count" name="count"/>
-    </div>
-    <div class="card-table-cell4">200</div>
-</div>
-<div class="card-table-row">
-    <div class="card-table-cell1">
-        <div class="product-image"></div>
-        <div class="product-block">
-            <div class="product-name">Трусы мужские</div>
-            <div class="product-describe">Размер 42. Цвет серый </div>
-        </div>
-    </div>
-    <div class="card-table-cell2">100</div>
-    <div class="card-table-cell3">
-    <input type="number" step="1" min="1" max="10" value="1" id="count" name="count"/>
-    </div>
-    <div class="card-table-cell4">200</div>
-</div>
-<div class="card-table-row">
-    <div class="card-table-cell1">
-        <div class="product-image"></div>
-        <div class="product-block">
-            <div class="product-name">Трусы мужские</div>
-            <div class="product-describe">Размер 42. Цвет серый </div>
-        </div>
-    </div>
-    <div class="card-table-cell2">100</div>
-    <div class="card-table-cell3">
-    <input type="number" step="1" min="1" max="10" value="1" id="count" name="count"/>
-    </div>
-    <div class="card-table-cell4">200</div>
-</div>
+
 <div class="card-table-result">
     <div class="card-table-cell1"><button id="order"><p>Оформить заказ</p></button></div>
     <div class="card-table-cell2">Итого:</div>
