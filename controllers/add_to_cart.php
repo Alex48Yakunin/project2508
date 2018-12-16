@@ -27,5 +27,4 @@ $_SESSION['cart'][$i]['size_id'] = $size_id;
 
 // var_dump ($_SESSION);
 
-header('Location:cart.php');die;
-
+echo true;
