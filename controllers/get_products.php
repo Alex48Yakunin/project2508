@@ -8,4 +8,7 @@ require_once '../models/Product.php';
 $site_page_title = 'Каталог товаров';
 $products = Product::getAll($collection, $category_id, $order_id);
 
+$postData = file_get_contents('php://input');
+$data = json_decode($postData, true);
+
 echo json_encode($products);

@@ -1,11 +1,5 @@
 $(document).ready(function () {
 
-    $.post('get_products.php', {
-
-    }, function (data) {
-        console.log(JSON.parse(data));
-        
-    });
 
     $('.catalog-select').click(function () {
 
