@@ -26,8 +26,8 @@
       };
       ?>
       </select><br>
-      <span>Фото</span>
-      <input type="file" id="photo" style="margin-top:10px"><br>
+      <!-- <span>Фото</span>
+      <input type="file" id="photo" style="margin-top:10px"><br> -->
       <input type="submit" style="margin-top:10px">
   </form>
 </div>
@@ -57,6 +57,5 @@
   ?>
   </tbody>
 </table>
-
 
 <?php require_once '../templates/admin_footer.php'; ?>
