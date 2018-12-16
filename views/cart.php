@@ -1,4 +1,7 @@
-<?php require_once "../templates/header.php";?>
+<?php require_once "../templates/header.php";
+var_dump ($count_cart);
+var_dump($_SESSION);
+?>
 
 <h2 class="card-heard">
     <div class="card-logo"></div>
@@ -10,6 +13,10 @@
     <div class="card-table-cell3">Кол-во</div>
     <div class="card-table-cell4">Сумма, руб.</div>
 </div>
+
+<?php
+
+?>
 <div class="card-table-row">
     <div class="card-table-cell1">
         <div class="product-image"></div>
