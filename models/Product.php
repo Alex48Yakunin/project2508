@@ -76,6 +76,52 @@ class Product
         }
     }
 
+    public function delete()
+    {
+        global $mysqli;
+
+        $id = $this->id;
+
+        $query = "DELETE FROM products WHERE product_id=$id";
+        $result = $mysqli->query($query);
+    }
+
+    public function update($title=false, $description=false, $image=false, $price=false, $category_id=false, $collection=false)
+    {
+        $id = $this->id;
+        
+        $condition = '';
+        if($title != false) {
+            $condition .= ", p.title='$title'";
+        }
+        if($description != false) {
+            $condition .= ", p.description='$description'";
+        }
+        if($image != false) {
+            $condition .= ", p.image='$image'";
+        }
+        if($price != false) {
+            $condition .= ", p.price='$price'";
+        }
+        if($category_id != false) {
+            $condition .= ", p.category_id='$category_id'";
+        }
+        if($collection != false) {
+            $condition .= ", p.collection='$collection'";
+        }
+
+        global $mysqli;
+
+        $query = "UPDATE products p SET p.product_id=$id $condition WHERE p.product_id=$id";
+        $result = $mysqli->query($query);
+
+        if($result) {
+            $product = new self($id);
+            return $product;
+        } else {
+            return false;
+        }
+    }
 }
 
 // $product = new Product(90);
@@ -90,5 +136,9 @@ class Product
 // echo '<pre>';
 // var_dump($products);
 // $product = Product::add('Название', 'Описание', '1.jpg', 1000, 1, 1);
+// echo '<pre>';
+// var_dump($product);
+// $product = new Product(7);
+// $product->update('Название2', false, false, false, false, false);
 // echo '<pre>';
 // var_dump($product);
