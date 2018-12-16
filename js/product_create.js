@@ -5,6 +5,12 @@ $('#product-create').submit(function() {
     var description = $('#description').val();
     var price = $('#price').val();
     var collection = $('#collection').val();
+    var data = {
+        title: title,
+        description: description,
+        price: price,
+        collection: collection
+    }
     $.post('handler_product_create.php', {
         title: title,
         description: description,
