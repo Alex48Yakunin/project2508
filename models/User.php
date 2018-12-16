@@ -29,15 +29,20 @@ class User
     public function register($email, $pass)
     {
         global $mysqli;
-        
-        $pass = password_hash($pass, PASSWORD_BCRYPT);
 
-        $query = "INSERT INTO users (name, email, pass, role)
-                  VALUES ('Пользователь', '$email', '$pass', 2)"; //мб для name и role стоит записать в базу значения по умолчанию, чтобы тут их не писать?
-        $result = $mysqli->query($query);
+        if(!self::getByEmail($email)) {
+            $pass = password_hash($pass, PASSWORD_BCRYPT);
 
-        if($result) {
-            return true; //почему оно работает, но не получается вернуть id?
+            $query = "INSERT INTO users (name, email, pass, role)
+                    VALUES ('Пользователь', '$email', '$pass', 2)"; //мб для name и role стоит записать в базу значения по умолчанию, чтобы тут их не писать?
+            $result = $mysqli->query($query);
+
+            if($result) {
+                $user = self::getByEmail($email);
+                return $user->id;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
@@ -83,6 +88,6 @@ class User
 // $user = User::getByEmail('admin@admin.ru');
 // echo '<pre>';
 // var_dump($user);
-// $user = User::register("helvegen@protonmail.com", "456");
+// $user = User::register("qwerty@protonmail.com", "456");
 // echo '<pre>';
 // var_dump($user);
