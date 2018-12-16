@@ -19,4 +19,4 @@ $users = User::getAll();
 
 $orders = Order::getAll($status, $user_id);
 
-require_once "../views/admin_orders.php"; 
+require_once "../views/admin_orders.php";

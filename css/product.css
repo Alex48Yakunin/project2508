@@ -58,6 +58,10 @@
     background: orangered;
     color: white;
 }
+.product__link-size {
+    background: orangered;
+    color: white;
+}
 .product__views-link:last-of-type {
     margin-right: 0;
 }

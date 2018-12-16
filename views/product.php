@@ -24,7 +24,7 @@
                 <div class="product__size-views">
                     <?php 
                     foreach($sizes as $size) {
-                            echo '<a href="" class="product__views-link">' . $size->value . '</a>';
+                            echo '<a href="" class="product__views-link" data-size-id = "' . $size->id . '">' . $size->value . '</a>';
                         }                       
                         ?>
                 </div>
@@ -36,5 +36,7 @@
     </div>
 </section>
 
+<script src="../lib/jquery-3.3.1.js"></script>
+<script src="../js/add_to_cart.js"></script>
 
 <?php require_once "../templates/footer.php";?>
