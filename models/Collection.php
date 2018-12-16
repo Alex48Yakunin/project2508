@@ -7,6 +7,10 @@ class Collection
 
     public static $data = [
         [
+            'title' => 'Все товары',
+            'id' => 0
+        ],
+        [
             'title' => 'Женщинам',
             'id' => 1
         ],
@@ -23,7 +27,11 @@ class Collection
 
     public function __construct($id)
     {
-        $data = self::$data[$id-1];
+        if (isset(self::$data[$id])) {
+            $data = self::$data[$id];
+        } else {
+            $data = self::$data[0];
+        }
         $this->id = $data['id'];
         $this->title = $data['title'];
     }
