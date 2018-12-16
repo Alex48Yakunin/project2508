@@ -60,6 +60,22 @@ class Product
 
         return $products;
     }
+
+    public function add($title, $description, $image, $price, $category_id, $collection)
+    {
+        global $mysqli;
+
+        $query = "INSERT INTO products (title, description, image, price, category_id, collection)
+                  VALUES ('$title', '$description', '$image', $price, $category_id, $collection)";
+        $result = $mysqli->query($query);
+
+        if($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 // $product = new Product(90);
@@ -73,3 +89,6 @@ class Product
 // $products = Product::getAllByCollection(1);
 // echo '<pre>';
 // var_dump($products);
+// $product = Product::add('Название', 'Описание', '1.jpg', 1000, 1, 1);
+// echo '<pre>';
+// var_dump($product);
