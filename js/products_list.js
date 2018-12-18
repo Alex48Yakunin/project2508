@@ -55,6 +55,7 @@ setInterval(function() {
         products.forEach(function(product) {
             $('#products-list').append(
                 '<tr>' +
+                '<td><img src="../images/icon/delete.png" class="delete-product-icon" title="Удалить"></td>' +
                 '<th scope="row">' + product.id + '</th>' +
                 '<td><a href="../controllers/admin_product.php?product_id=' + product.id + '">' + product.title + '</a></td>' +
                 '<td>' + product.description + '</td>' +
