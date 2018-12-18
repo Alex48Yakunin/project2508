@@ -1,6 +1,7 @@
 <?php require_once '../templates/admin_header.php'; ?>
 
 <h1 class="text-center">Список товаров</h1>
+<p id="test"></p>
 <button type="button" class="btn btn-dark" id="btn-product-create">Создать товар</button>
 <span class="alert" id="product-alert"></span>
 <div class="col-6" id="div-product-create">
@@ -43,29 +44,8 @@
       <th scope="col">Коллекция</th>
     </tr>
   </thead>
-  <tbody>
-  <?php 
-    foreach($products as $product) {
-      foreach ($categories as $category) {
-        if ($product->category_id == $category->id) {
-          $category_title = $category->title;
-        };
-      };
-      foreach ($collections as $collection) {
-        if ($product->collection == $collection->id) {
-          $collection_title = $collection->title;
-        };
-      };
-        echo '<tr>
-            <th scope="row">'.$product->id.'</th>
-            <td><a href="../controllers/admin_product.php?product_id='.$product->id.'">'.$product->title.'</a></td>
-            <td>'.$product->description.'</td>
-            <td>'.$product->price.'</td>
-            <td>'.$category_title.'</td>
-            <td>'.$collection_title.'</td>
-        </tr>';
-    };
-  ?>
+  <tbody id="products-list">
+
   </tbody>
 </table>
 
