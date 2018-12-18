@@ -69,3 +69,8 @@ nav{
 .products-table{
     margin-top: 20px;
 }
+#product-alert{
+    padding: .1rem .6rem;
+    font-size: .9rem;
+    font-weight: 400;
+}

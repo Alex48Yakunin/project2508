@@ -2,14 +2,7 @@ $(document).ready(function() {
 
 //show form
 $('#btn-product-create').click(function() {
-    var display = $('#div-product-create').css('display');
-    if(display == 'none'){
-        $('#div-product-create').slideDown(500);
-        $('#btn-product-create').text('Скрыть');
-    } else {
-        $('#div-product-create').slideUp(500);
-        $('#btn-product-create').text('Создать товар');
-    }
+    showHideForm();
 })
 
 //create product
@@ -35,11 +28,28 @@ $('#product-create').submit(function() {
         if(xhr.readyState != 4) {
             return;
         }
+        if(xhr.status == 200) {
+            showHideForm();
+            $('#product-create')[0].reset();
+            $('#product-alert').removeClass('alert-dark alert-danger').addClass('alert-dark').text('Товар создан.');
+        } else {
+            $('#product-alert').removeClass('alert-danger alert-dark').addClass('alert-danger').text('Ошибка. Попробуйте еще раз.');
+        }
     }
+    
     return false;
 })
 
-//get products
-
-
 })
+
+var showHideForm = function(){
+    var display = $('#div-product-create').css('display');
+    $('#product-alert').removeClass('alert-dark alert-danger').text('');
+    if(display == 'none'){
+        $('#div-product-create').slideDown(500);
+        $('#btn-product-create').text('Скрыть');
+    } else {
+        $('#div-product-create').slideUp(500);
+        $('#btn-product-create').text('Создать товар');
+    }
+}

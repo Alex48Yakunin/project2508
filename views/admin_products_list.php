@@ -2,6 +2,7 @@
 
 <h1 class="text-center">Список товаров</h1>
 <button type="button" class="btn btn-dark" id="btn-product-create">Создать товар</button>
+<span class="alert" id="product-alert"></span>
 <div class="col-6" id="div-product-create">
   <form method="POST" id="product-create">
     <div class="form-group">
@@ -28,6 +29,7 @@
         ?>
       </select>
     </div>
+    <button type="submit" class="btn btn-dark" id="product-create">Создать</button>
   </form>
 </div>
 <table class="table table-hover products-table">
