@@ -1,5 +1,18 @@
 $(document).ready(function() {
 
+//show form
+$('#btn-product-create').click(function() {
+    var display = $('#div-product-create').css('display');
+    if(display == 'none'){
+        $('#div-product-create').slideDown(500);
+        $('#btn-product-create').text('Скрыть');
+    } else {
+        $('#div-product-create').slideUp(500);
+        $('#btn-product-create').text('Создать товар');
+    }
+})
+
+//create product
 $('#product-create').submit(function() {
     var title = $('#title').val();
     var description = $('#description').val();
@@ -25,5 +38,8 @@ $('#product-create').submit(function() {
     }
     return false;
 })
+
+//get products
+
 
 })

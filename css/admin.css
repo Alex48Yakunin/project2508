@@ -60,3 +60,12 @@ nav{
     width: 64px;
     height: 64px;
 }
+#div-product-create{
+    display: none;
+}
+#div-product-create label{
+    margin: 10px;
+}
+.products-table{
+    margin-top: 20px;
+}
