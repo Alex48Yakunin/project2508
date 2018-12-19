@@ -32,10 +32,9 @@
     <button type="submit" class="btn btn-dark" id="product-create">Создать</button>
   </form>
 </div>
-<table class="table products-table">
+<table class="table table-hover products-table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col-md-auto"></th>
       <th scope="col-md-auto"></th>
       <th scope="col">ID</th>
       <th scope="col">Наименование</th>
