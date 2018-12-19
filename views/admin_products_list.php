@@ -36,6 +36,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col-md-auto"></th>
+      <th scope="col-md-auto"></th>
       <th scope="col">ID</th>
       <th scope="col">Наименование</th>
       <th scope="col">Описание</th>
