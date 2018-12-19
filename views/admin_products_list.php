@@ -1,7 +1,6 @@
 <?php require_once '../templates/admin_header.php'; ?>
 
 <h1 class="text-center">Список товаров</h1>
-<p id="test"></p>
 <button type="button" class="btn btn-dark" id="btn-product-create">Создать товар</button>
 <span class="alert" id="product-alert"></span>
 <div class="col-6" id="div-product-create">
