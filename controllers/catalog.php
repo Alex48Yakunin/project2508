@@ -19,4 +19,6 @@ require_once '../models/Category.php';
 $categories = Category::getAll(); 
 
 
+
+
 require_once '../views/catalog.php';
