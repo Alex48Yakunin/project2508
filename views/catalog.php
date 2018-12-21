@@ -21,13 +21,14 @@
             <hr>
         </div>
         <div class="catalog-select-list">
+           <p class="catalog-select-list-row category_list" id="category_all">Все</p>
             <?php 
                 foreach ($categories as $category) {
                     echo '<p class="catalog-select-list-row category_list" id=category_'.$category->id.'>'.$category->title.'</p>';
                 }
             ?>
         </div>
-        
+
     </div>
     <div class="catalog-list-item">
         <div class="catalog-select">
@@ -55,7 +56,7 @@
 </div>
 
 <div class="products">
-    
+
 </div>
 
 <div class="pages">
@@ -63,7 +64,10 @@
     <div class="pages-item"> 2 </div>
 </div>
 
+<?php require_once '../views/ajax_loader.php'; ?>
+
 <script src="../lib/jquery-3.3.1.js"></script>
+<script src="../js/ajax_loader.js"></script>
 <script src="../js/catalog_list.js"></script>
 <script src="../js/product_generation.js"></script>
 

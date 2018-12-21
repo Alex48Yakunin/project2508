@@ -1,25 +1,31 @@
 $(document).ready(function () {
 
     var category_id = '';
-    
+
     var collection = $('.collection_id').attr('id');
     collection = collection.match(/\d+/);
     collection = Number.parseInt(collection);
-    
+
+    if (isNaN(collection) == true) {
+        collection = '';
+    }
+
     GetProducts(category_id, collection);
 
     $('.category_list').click(function () {
 
         $('.products').children().remove();
 
-        var category_id = $(this).attr('id');
-        category_id = category_id.match(/\d+/);
-        category_id = Number.parseInt(category_id);
-
+        if ($(this).attr('id') !== 'category_all') {
+            var category_id = $(this).attr('id');
+            category_id = category_id.match(/\d+/);
+            category_id = Number.parseInt(category_id);
+        } 
+        
         GetProducts(category_id, collection)
     });
-    
-    
+
+
 });
 
 function GetProducts(category, collection) {
@@ -27,6 +33,7 @@ function GetProducts(category, collection) {
         category_id: category,
         collection: collection
     }, function (data) {
+
         var products = JSON.parse(data);
 
         products.forEach(function (product) {

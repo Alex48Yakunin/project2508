@@ -7,4 +7,6 @@ require_once '../models/Product.php';
 $site_page_title = 'Каталог товаров';
 $products = Product::getAll($collection, $category_id);
 
+sleep(1);
+
 echo json_encode($products);
