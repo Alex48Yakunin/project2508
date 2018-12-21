@@ -49,12 +49,4 @@
   </tbody>
 </table>
 
-<div id="delete-banner">
-  <div class="delete-banner-inner col-3 rounded">
-    <p>Точно удалить?</p>
-    <button type="button" class="btn btn-danger">Да, удаляем!</button>
-    <button type="button" class="btn btn-secondary">Не уверен...</button>
-  </div>
-</div>
-
 <?php require_once '../templates/admin_footer.php'; ?>
