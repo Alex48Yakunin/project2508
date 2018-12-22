@@ -2,6 +2,7 @@
 
 <div id="delete-banner">
     <div class="update-banner-inner col-4 rounded">
+        <div id="dragon"><div id="dragon-inner"></div></div>
         <form method="POST" action="../controllers/handler_update.php?product_id=<?php echo $product_id; ?>">
             <div class="form-group">
             <label for="exampleFormControlInput1">Изменить название</label>

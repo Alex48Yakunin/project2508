@@ -162,17 +162,33 @@ nav{
     align-items: center;
     justify-content: space-between;
 }
-.update-banner-inner:before{
+#dragon{
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
     position: absolute;
-    content: '';
-    width: 200px;
-    height: 200px;
-    background-image: url(../images/icon/dragon.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    left: 35%;
-    top: -170px;
+    left: 0;
+    top: -135px;
 }
+#dragon-inner{
+    position: absolute;
+    width: 170px;
+    height: 150px;
+    background-image: url(../images/icon/dragon.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: -200px;
+    top: 0;
+    animation: run-dragon 6s linear infinite;
+}
+
+@keyframes run-dragon {
+    100% {
+        left: 120%;
+    }
+}
+
+
 .update-banner-inner:after{
     position: absolute;
     content: '';
