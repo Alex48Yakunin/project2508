@@ -2,6 +2,10 @@
 
 session_start();
 
+if( !isset($_SESSION['cart']) ) { 
+    $_SESSION['cart'] = array();
+    }
+
 $count_cart = count ($_SESSION['cart']);
 
 require_once '../models/Product.php';
@@ -25,7 +29,6 @@ foreach ($_SESSION['cart'] as $key => $cart) {
     $cart_view[$key]['collection'] = $collection->title;
     $cart_view[$key]['size'] = $size->value;
     $cart_view[$key]['count'] = $cart['count'];
- }
+}
 
- 
 require_once "../views/cart.php";
