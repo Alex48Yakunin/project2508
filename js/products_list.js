@@ -86,7 +86,7 @@ var getProducts = function(){
                                 '<a class="dropdown-item burger-menu-item" href="#">' +
                                     '<img src="../images/icon/update.png" alt="" title="Изменить">' +
                                 '</a>' +
-                                '<a class="dropdown-item burger-menu-item" href="#">' +
+                                '<a class="dropdown-item burger-menu-item" href="../controllers/delete_demon.php?product_id=' + product.id + '">' +
                                 '<img src="../images/icon/delete.png" alt="" title="Удалить">' +
                                 '</a>' +
                             '</div>' +
