@@ -10,4 +10,4 @@ $categories = Category::getAll();
 
 $product = new Product($product_id);
 
-require_once '../views/update_dragon.php';
+require_once '../views/update_product.php';

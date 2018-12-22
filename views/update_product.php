@@ -29,7 +29,7 @@
             </div>
             <div class="buttons">
                 <input type="submit" class="btn btn-dark" id="product-update" val="Изменить">
-                <a href="../controllers/admin_products_list.php" class="btn btn-dark" id="product-back">Вернуться</a>
+                <a href="../controllers/admin_products_list.php" class="btn btn-dark" id="product-back">Назад в список</a>
             </div>
         </form>
     </div>

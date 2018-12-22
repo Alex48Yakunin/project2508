@@ -15,8 +15,8 @@
         </p>
     </div>
     <div class="row justify-content-center align-items-center">
-        <a href="../controllers/#" class="btn btn-success">Изменить</a>
-        <a href="../controllers/delete_demon.php?product_id=<?php echo $product->id; ?>" class="btn btn-danger" style="margin-left: 10px">Удалить</a>
+        <a href="../controllers/update_product.php?product_id=<?php echo $product->id; ?>" class="btn btn-success">Изменить</a>
+        <a href="../controllers/delete_product.php?product_id=<?php echo $product->id; ?>" class="btn btn-danger" style="margin-left: 10px">Удалить</a>
     </div>
 </div>
 
