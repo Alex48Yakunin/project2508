@@ -112,12 +112,9 @@
         <button id="basket_alert_additional_btn_prev"></button>
     </div>
 
-
-
 </div>
 
 <script src="../lib/jquery-3.3.1.js"></script>
 <script src="../js/add_to_cart.js"></script>
-<script src="../js/add_to_card_form.js"></script>
 
 <?php require_once "../templates/footer.php";?>
