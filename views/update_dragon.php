@@ -2,7 +2,7 @@
 
 <div id="delete-banner">
     <div class="update-banner-inner col-4 rounded">
-        <form method="POST" action="../controllers/handler_update.php?product_id=<?php echo $product_id; ?>" id="product-create">
+        <form method="POST" action="../controllers/handler_update.php?product_id=<?php echo $product_id; ?>">
             <div class="form-group">
             <label for="exampleFormControlInput1">Изменить название</label>
             <input class="form-control" name="title" type="text" id="title" placeholder="<?php echo $product->title ?>">
