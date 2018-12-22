@@ -100,6 +100,25 @@
                     <p>Гамак</p>
                     <p id="basket_alert_additional_cost">1900 руб.</p>
                 </a>
+                
+                <a href="" class="basket_alert_additional-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Палатка</p>
+                    <p id="basket_alert_additional_cost">2500 руб.</p>
+                </a>
+                
+                <a href="" class="basket_alert_additional-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Палатка</p>
+                    <p id="basket_alert_additional_cost">2500 руб.</p>
+                </a>
+
+                <a href="" class="basket_alert_additional-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Палатка</p>
+                    <p id="basket_alert_additional_cost">2500 руб.</p>
+                </a>
+
                 <a href="" class="basket_alert_additional-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Палатка</p>

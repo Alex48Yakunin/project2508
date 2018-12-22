@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    var open_modal_window = 0;
     var product_id = getUrlVars()["product_id"];
     var size_id = $('.product__views-link:first-of-type').data('size-id');
     $('.product__views-link:first-of-type').addClass('product__link-size');
@@ -32,7 +31,7 @@ $(document).ready(function () {
         }, function (data) {
             if (data) {
                 $('.basket_alert').css('display', 'block');
-                Show_modal_window();
+                ShowModalWindow();
             } else {
                 alert('Что-то пошло не так...попробуйте ещё раз');
             }
@@ -43,86 +42,109 @@ $(document).ready(function () {
 
 //// Модальное окно ////
 
-function Show_modal_window() {
+function ShowModalWindow() {
 
-        //////  Кнопки  ///////
+    ///////////////  Кнопки  ////////////////
 
-        $('#close_cross').click(function () {
-            $('.basket_alert').css('display', 'none');
-        });
-        $('.basket_alert_btns_close').click(function () {
-            $('.basket_alert').css('display', 'none');
-        });
-        $('#button_to_basket').click(function () {
-            location.href = "../controllers/cart.php";
-        });
+    // Кнопка закытия окна (крестик)
+    $('#close_cross').click(function () {
+        $('.basket_alert').css('display', 'none');
+    });
+    //Кнопка продолжить покупки
+    $('.basket_alert_btns_close').click(function () {
+        $('.basket_alert').css('display', 'none');
+    });
+    //Кнопка добавить в корзину
+    $('#button_to_basket').click(function () {
+        location.href = "../controllers/cart.php";
+    });
 
-        /// Размер слайдера ///
+    /// Размер слайдера ///
+    
+    ///Кол-во товара в предложке
+    var products_count = $('.basket_alert_additional-item').length;
+    //Размер 1 товара с учетом отступов css
+    var width = $('.basket_alert_additional-item').css('width');
+    width = parseInt(width);
+    width = width + 16;
+    //Размер слайдера
+    var slider_width = products_count * width;
+    $('.basket_alert_additional-slider_box').css('width', slider_width);
 
-        var products_count = $('.basket_alert_additional-item').length;
-        var products_width = $('.basket_alert_additional-item').css('width');
-        products_width = parseInt(products_width);
-        var slider_width = (products_count * products_width) + (16 * products_count);
-        $('.basket_alert_additional-slider_box').css('width', slider_width);
+    //Если товара меньше 4, слайдер не должен работать
+    if (products_count <= 4){
+        $('#basket_alert_additional_btn_next').css('display', 'none');
+    }
+    
+    //////////// Слайдер вправо ////////////
 
-        ///     Слайдер     ///
+    $('#basket_alert_additional_btn_next').click(function () {
 
-        var width = $('.basket_alert_additional-item').css('width');
-        width = parseInt(width);
-        width = width + 16;
-        i = 1;
+        // Получение отступ элементов слайдера
+        var margin = $(this).prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').css('margin-left');
 
-        /// Слайдер вправо ///
+        // Точка, когда скрывается кнопка с учетом того, что видно 4 продукта
+        var hide_next_btn = -width * (products_count - 5) + 'px';
 
-        $('#basket_alert_additional_btn_next').click(function () {
+        // Показывать кнопку назад, когда 1 и больше элементов слева
+        if (margin !== 0) {
+            $('#basket_alert_additional_btn_prev').css('display', 'block');
+        }
 
-            var margin = $(this).prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').css('margin-left');
+        //Скрывать кнопку вправо, когда там не осталось элементов
+        if (margin == hide_next_btn) {
+            $('#basket_alert_additional_btn_next').css('display', 'none');
+        }
 
-            var hide_next_btn = -width * (products_count - 5) + 'px';
+        //Отступ
+        margin = parseInt(margin);
+        margin = margin - width;
 
-            if (margin !== 0) {
-                $('#basket_alert_additional_btn_prev').css('display', 'block');
-            }
+        //Скрывать кнопки, пока идет анимация
+        LockButton(this, '#basket_alert_additional_btn_prev');
 
-            if (margin == hide_next_btn) {
-                $('#basket_alert_additional_btn_next').css('display', 'none');
-            }
+        //Анимация отступа
+        $(this).prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').animate({
+            marginLeft: margin
+        }, 200);
 
-            margin = parseInt(margin);
-            margin = margin - width;
+    });
 
-            LockButton(this, '#basket_alert_additional_btn_prev');
+    /// Слайдер влево ///
 
-            $(this).prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').animate({
-                marginLeft: margin
-            }, 200);
+    $('#basket_alert_additional_btn_prev').click(function () {
 
-        });
+        // ПОлучение отступ элементов слайдера
+        var margin = $(this).prev().prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').css('margin-left');
 
-        /// Слайдер влево ///
+        //Отступ
+        margin = parseInt(margin);
+        margin = margin + width;
+        
+        // Пока слева есть минимум 1 товар
+        var hide_next_btn = -width * (products_count - 4) + 'px';
+        
+        //Если слева нет товаров, то скрывается кнопка влево
+        if (margin == 0) {
+            $('#basket_alert_additional_btn_prev').css('display', 'none');
+        }
+        //
+        if (margin < products_count) {
+            $('#basket_alert_additional_btn_next').css('display', 'block');
+        }
+        
+        //Скрывать кнопки, пока идет анимация
+        LockButton(this, '#basket_alert_additional_btn_prev');
 
-        $('#basket_alert_additional_btn_prev').click(function () {
+        //Анимация отступа
+        $(this).prev().prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').animate({
+            marginLeft: margin
+        }, 200);
 
-
-            var margin = $(this).prev().prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').css('margin-left');
-
-            margin = parseInt(margin);
-            margin = margin + width;
-
-            if (margin == 0) {
-                $('#basket_alert_additional_btn_next').css('display', 'block');
-                $('#basket_alert_additional_btn_prev').css('display', 'none');
-            }
-
-            LockButton(this, '#basket_alert_additional_btn_prev');
-
-            $(this).prev().prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').animate({
-                marginLeft: margin
-            }, 200);
-
-        });
+    });
 }
 
+//Функция скрывания кнопки, пока идет анимация
 function LockButton(object_1, object_2) {
     var LockInterval = setInterval(function () {
         $(object_1).css('pointer-events', 'none');
@@ -134,4 +156,4 @@ function LockButton(object_1, object_2) {
     }, 200);
 }
 
-//////////////////////////
+//////////////////  Конец модального окна  ////////////////
