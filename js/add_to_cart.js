@@ -42,7 +42,7 @@ $(document).ready(function () {
 
 //// Модальное окно ////
 
-function ShowModalWindow() {
+function showModalWindow() {
 
     ///////////////  Кнопки  ////////////////
 
@@ -145,7 +145,7 @@ function ShowModalWindow() {
 }
 
 //Функция скрывания кнопки, пока идет анимация
-function LockButton(object_1, object_2) {
+function lockButton(object_1, object_2) {
     var LockInterval = setInterval(function () {
         $(object_1).css('pointer-events', 'none');
     });
