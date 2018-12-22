@@ -12,21 +12,41 @@ $(document).ready(function () {
         location.href = "../controllers/cart.php";
     });
     
+    /// Размер слайдера ///
+    
+    var products_count = $('.basket_alert_additional-item').length;
+    var products_width = $('.basket_alert_additional-item').css('width');
+    products_width = parseInt(products_width);
+    var slider_width = (products_count * products_width) + (16 * products_count);
+    $('.basket_alert_additional-slider_box').css('width', slider_width);
+    
     ///     Слайдер     ///
     
     var width = $('.basket_alert_additional-item').css('width');
     width = parseInt(width);
     width = width + 16;
     i = 1;
-    
+
     /// Слайдер вправо ///
     
     $('#basket_alert_additional_btn_next').click(function () {
         
         var margin = $(this).prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').css('margin-left');
         
-        margin = parseInt(margin);
+        var hide_next_btn = -width * (products_count - 5) + 'px';
+         
+        console.log(hide_next_btn);
+        console.log(margin);
         
+        if (margin !== 0){
+            $('#basket_alert_additional_btn_prev').css('display', 'block');
+        }
+        
+        if (margin == hide_next_btn){
+            $('#basket_alert_additional_btn_next').css('display', 'none');
+        }
+        
+        margin = parseInt(margin);
         margin = margin - width;
 
         LockButton(this, '#basket_alert_additional_btn_prev');
@@ -43,8 +63,12 @@ $(document).ready(function () {
         var margin = $(this).prev().prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').css('margin-left');
         
         margin = parseInt(margin);
-        
         margin = margin + width;
+        
+        if (margin == 0){
+            $('#basket_alert_additional_btn_next').css('display', 'block');
+            $('#basket_alert_additional_btn_prev').css('display', 'none');
+        }
         
         LockButton(this, '#basket_alert_additional_btn_prev');
         
