@@ -111,11 +111,11 @@ nav{
     position: absolute;
     content: '';
     width: 200px;
-    height: 200px;
-    background-image: url(../images/icon/devil.svg);
+    height: 217px;
+    background-image: url(../images/icon/devil.png);
     background-size: cover;
     background-repeat: no-repeat;
-    top: -170px;
+    top: -190px;
 }
 .delete-banner-inner p{
     width: 100%;
@@ -187,7 +187,6 @@ nav{
         left: 110%;
     }
 }
-
 
 .update-banner-inner:after{
     position: absolute;
