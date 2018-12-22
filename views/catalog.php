@@ -22,9 +22,9 @@
         </div>
         <div class="catalog-select-list">
             <?php 
-                foreach ($categories as $category) {
-                    echo '<p class="catalog-select-list-row category_list" id=category_'.$category->id.'>'.$category->title.'</p>';
-                }
+                    foreach ($categories as $category) {
+                        echo '<p class="catalog-select-list-row category_list" id=category_'.$category->id.'>'.$category->title.'</p>';
+                    }   
             ?>
         </div>
         
@@ -55,7 +55,11 @@
 </div>
 
 <div class="products">
-    
+                <?php
+                    if ($products == []) {
+                        echo '<h2 class="no-goods"> Извините, товары не найдены...<h2>';
+                    }
+                ?>
 </div>
 
 <div class="pages">
