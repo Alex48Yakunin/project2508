@@ -168,7 +168,7 @@ nav{
     overflow: hidden;
     position: absolute;
     left: 0;
-    top: -135px;
+    top: -160px;
 }
 #dragon-inner{
     position: absolute;
@@ -177,14 +177,14 @@ nav{
     background-image: url(../images/icon/dragon.gif);
     background-size: contain;
     background-repeat: no-repeat;
-    left: -200px;
+    left: -100px;
     top: 0;
-    animation: run-dragon 6s linear infinite;
+    animation: run-dragon 10s linear infinite;
 }
 
 @keyframes run-dragon {
     100% {
-        left: 120%;
+        left: 110%;
     }
 }
 
