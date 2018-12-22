@@ -83,7 +83,7 @@ var getProducts = function(){
                                 '<img src="../images/icon/burger.png" alt="" title="Меню">' +
                             '</button>' +
                             '<div class="dropdown-menu border border-secondary rounded burger-menu">' +
-                                '<a class="dropdown-item burger-menu-item" href="#">' +
+                                '<a class="dropdown-item burger-menu-item" href="../controllers/update_dragon.php?product_id=' + product.id + '">' +
                                     '<img src="../images/icon/update.png" alt="" title="Изменить">' +
                                 '</a>' +
                                 '<a class="dropdown-item burger-menu-item" href="../controllers/delete_demon.php?product_id=' + product.id + '">' +
