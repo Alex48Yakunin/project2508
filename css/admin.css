@@ -150,3 +150,57 @@ nav{
     color: black;
     text-decoration: none;
 }
+.update-banner-inner{
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    margin: 0 auto;
+}
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.update-banner-inner:before{
+    position: absolute;
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/icon/dragon.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 35%;
+    top: -170px;
+}
+.update-banner-inner:after{
+    position: absolute;
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/icon/heart.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 40%;
+    bottom: -60px;
+}
+#product-update{
+    background-color: #75cc54;
+    border: 1px solid #6CBC4A;
+    color: black;
+    transition: .3s;
+}
+#product-update:hover{
+    background-color: #F26D53;
+    border: 1px solid #D35746;
+}
+#product-back{
+    background-color: #F26D53;
+    border: 1px solid #D35746;
+    color: black;
+    transition: .3s;
+}
+#product-back:hover{
+    background-color: #75cc54;
+    border: 1px solid #6CBC4A;
+}
