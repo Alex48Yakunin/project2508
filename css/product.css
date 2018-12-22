@@ -80,6 +80,7 @@
 }
 .basket_alert{
     position: fixed;
+    display: none;
     max-width: 800px;
     max-height: 640px;
     border-radius: 10px;

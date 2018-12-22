@@ -29,8 +29,8 @@ $(document).ready(function () {
             product_id: product_id,
             size_id: size_id
         }, function (data) {
-            if (Request.readyState == 4) {
-                alert('Товар добавлен в корзину');
+            if (data) {
+                $('.basket_alert').css('display', 'block');
             } else {
                 alert('Что-то пошло не так...попробуйте ещё раз');
             }
