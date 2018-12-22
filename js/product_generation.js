@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
     var category_id = '';
-    
+
     var collection = $('.collection_id').attr('id');
     collection = collection.match(/\d+/);
     collection = Number.parseInt(collection);
-    
+
     GetProducts(category_id, collection);
 
     $('.category_list').click(function () {
@@ -16,10 +16,11 @@ $(document).ready(function () {
         category_id = category_id.match(/\d+/);
         category_id = Number.parseInt(category_id);
 
-        GetProducts(category_id, collection)
+        GetProducts(category_id, collection);
+        window.history.pushState(category_id, "Title", "?collection="+collection+"&category_id=" + category_id); // подмена url
     });
-    
-    
+
+
 });
 
 function GetProducts(category, collection) {
@@ -40,3 +41,8 @@ function GetProducts(category, collection) {
         });
     });
 }
+
+
+
+
+
