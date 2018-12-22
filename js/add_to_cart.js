@@ -146,7 +146,7 @@ function showModalWindow() {
 
 //Функция скрывания кнопки, пока идет анимация
 function lockButton(object_1, object_2) {
-    var LockInterval = setInterval(function () {
+    var lockInterval = setInterval(function () {
         $(object_1).css('pointer-events', 'none');
     });
 
