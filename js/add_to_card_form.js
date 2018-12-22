@@ -34,9 +34,6 @@ $(document).ready(function () {
         var margin = $(this).prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').css('margin-left');
         
         var hide_next_btn = -width * (products_count - 5) + 'px';
-         
-        console.log(hide_next_btn);
-        console.log(margin);
         
         if (margin !== 0){
             $('#basket_alert_additional_btn_prev').css('display', 'block');
