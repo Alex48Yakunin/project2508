@@ -55,11 +55,8 @@
 </div>
 
 <div class="products">
-                <?php
-                    if ($products == []) {
-                        echo '<h2 class="no-goods"> Извините, товары не найдены...<h2>';
-                    }
-                ?>
+
+
 </div>
 
 <div class="pages">
