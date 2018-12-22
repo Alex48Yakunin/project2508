@@ -17,7 +17,8 @@ $(document).ready(function () {
         category_id = Number.parseInt(category_id);
 
         GetProducts(category_id, collection);
-        window.history.pushState(category_id, "Title", "?collection="+collection+"&category_id=" + category_id); // подмена url
+        window.history.pushState(category_id, "Title", "?collection=" + collection + "&category_id=" + category_id); // подмена url
+
     });
 
 
@@ -29,20 +30,22 @@ function GetProducts(category, collection) {
         collection: collection
     }, function (data) {
         var products = JSON.parse(data);
-
-        products.forEach(function (product) {
+        console.log(products);
+        if (products.length < 1) {
             $('.products').append(
-                '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
-                '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
-                '<p class="products-item-title">' + product.title + '</p>' +
-                '<p class="products-item-price">' + product.price + '</p>' +
-                '</a>'
-            );
-        });
+                '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
+            ); // если нет продуктов
+        } else {
+            products.forEach(function (product) {
+                $('.products').append(
+                    '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
+                    '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
+                    '<p class="products-item-title">' + product.title + '</p>' +
+                    '<p class="products-item-price">' + product.price + '</p>' +
+                    '</a>'
+                );
+            });
+        }
+
     });
 }
-
-
-
-
-
