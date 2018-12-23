@@ -9,7 +9,7 @@ $(document).ready(function () {
     if (isNaN(collection) == true) {
         collection = '';
     }
-
+  
     GetProducts(category_id, collection);
 
     $('.category_list').click(function () {
@@ -20,9 +20,12 @@ $(document).ready(function () {
             var category_id = $(this).attr('id');
             category_id = category_id.match(/\d+/);
             category_id = Number.parseInt(category_id);
-        } 
+        } else {
+            category_id = 0;
+        }
         
         GetProducts(category_id, collection)
+        window.history.pushState(category_id, "Title", "?collection=" + collection + "&category_id=" + category_id); // подмена url
     });
 
 
@@ -35,15 +38,22 @@ function GetProducts(category, collection) {
     }, function (data) {
 
         var products = JSON.parse(data);
-
-        products.forEach(function (product) {
+        console.log(products);
+        if (products.length < 1) {
             $('.products').append(
-                '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
-                '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
-                '<p class="products-item-title">' + product.title + '</p>' +
-                '<p class="products-item-price">' + product.price + '</p>' +
-                '</a>'
-            );
-        });
+                '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
+            ); // если нет продуктов
+        } else {
+            products.forEach(function (product) {
+                $('.products').append(
+                    '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
+                    '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
+                    '<p class="products-item-title">' + product.title + '</p>' +
+                    '<p class="products-item-price">' + product.price + '</p>' +
+                    '</a>'
+                );
+            });
+        }
+
     });
 }
