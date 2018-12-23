@@ -31,7 +31,7 @@ $(document).ready(function () {
         }, function (data) {
             if (data) {
                 $('.basket_alert').css('display', 'block');
-                ShowModalWindow();
+                showModalWindow();
             } else {
                 alert('Что-то пошло не так...попробуйте ещё раз');
             }
@@ -101,7 +101,7 @@ function showModalWindow() {
         margin = margin - width;
 
         //Скрывать кнопки, пока идет анимация
-        LockButton(this, '#basket_alert_additional_btn_prev');
+        lockButton(this, '#basket_alert_additional_btn_prev');
 
         //Анимация отступа
         $(this).prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').animate({
@@ -134,7 +134,7 @@ function showModalWindow() {
         }
         
         //Скрывать кнопки, пока идет анимация
-        LockButton(this, '#basket_alert_additional_btn_prev');
+        lockButton(this, '#basket_alert_additional_btn_prev');
 
         //Анимация отступа
         $(this).prev().prev('.basket_alert_additional-slider').children('.basket_alert_additional-slider_box').animate({
@@ -152,7 +152,7 @@ function lockButton(object_1, object_2) {
 
     setTimeout(function () {
         $(object_1).css('pointer-events', 'painted');
-        clearInterval(LockInterval);
+        clearInterval(lockInterval);
     }, 200);
 }
 
