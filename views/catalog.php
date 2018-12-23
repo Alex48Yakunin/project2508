@@ -6,9 +6,9 @@
 <!-- breadcrumps -->
 
 <div class="title">
-    <h1>
-        <?php echo $collection_id->title?>
-    </h1>
+    <?php 
+        echo '<h1 class="collection_id" id="collection_'.$collection_id->id.'">'.$collection_id->title.'</h1>'
+    ?>
     <p>Все товары</p>
 </div>
 
@@ -22,9 +22,9 @@
         </div>
         <div class="catalog-select-list">
             <?php 
-                foreach ($categories as $category) {
-                    echo '<p class="catalog-select-list-row">'.$category->title.'</p>';
-                }
+                    foreach ($categories as $category) {
+                        echo '<p class="catalog-select-list-row category_list" id=category_'.$category->id.'>'.$category->title.'</p>';
+                    }   
             ?>
         </div>
         
@@ -55,16 +55,8 @@
 </div>
 
 <div class="products">
-    <?php
-    foreach ($products as $product) {
-        echo '<a href="../controllers/product.php?product_id='.$product->id.'" class="products-item">
-                <div class="products-item-photo" style="background-image: url(../images/picture/'.$product->image.')"></div>
-                <p class="products-item-title">'.$product->title.'</p>
-                <p class="products-item-price">'.$product->price.'</p>
-            </a>';
-        
-    } 
-    ?>
+
+
 </div>
 
 <div class="pages">
@@ -74,5 +66,6 @@
 
 <script src="../lib/jquery-3.3.1.js"></script>
 <script src="../js/catalog_list.js"></script>
+<script src="../js/product_generation.js"></script>
 
 <?php require_once '../templates/footer.php'; ?>

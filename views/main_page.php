@@ -76,7 +76,7 @@
     <p>подписывайся и следи за новинками и выгодными предложениями.</p>
     <form class="main-page-form">
         <div>
-            <input type="text" placeholder="e-mail">
+            <input type="e-mail" placeholder="e-mail">
             <button>записаться</button>
         </div>
         <p id="distribution-error">Некорректный e-mail. Попробуйте еще раз.</p>

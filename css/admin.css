@@ -218,4 +218,17 @@ nav{
 #product-back:hover{
     background-color: #75cc54;
     border: 1px solid #6CBC4A;
+
+.row {
+    display: flex;
+    justify-content: space-around; 
+}
+
+.row1{
+    margin-bottom: 10px;
+}
+
+.text-betwen {
+    display: flex;
+    justify-content: space-between;
 }

@@ -147,3 +147,8 @@ a{
 .catalog-select-list-row-hover{
     background: rgba(128, 128, 128, 0.15);
 }
+
+.no-goods {
+    margin: 0 auto;
+    color: #5f5757;
+}

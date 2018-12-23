@@ -20,8 +20,8 @@ $(document).ready(function () {
 
         if (menu_list.css('display') == 'none') {
 
-            $('.catalog-list-item').css('pointer-events', 'none');
-            $(this).parent('.catalog-list-item').css('pointer-events', 'painted');
+            // $('.catalog-list-item').css('pointer-events', 'none');  // зачем вообще это свойство?
+            // $(this).parent('.catalog-list-item').css('pointer-events', 'painted');  // зачем вообще это свойство?
 
             menu_list.css('display', 'block');
             $(this).children('img').addClass('catalog-menu-img-active');
@@ -62,5 +62,18 @@ $(document).ready(function () {
         $('.catalog-list-item').css('pointer-events', 'painted');
 
     });
+
+
+    // сворачивание списков при клике вне их  
+    $(document).mouseup(function (e) { // событие клика по веб-документу
+        var div = $(this).find(".catalog-list-item .catalog-select-list"); // тут указываем  элемент
+        if (!div.is(e.target) // если клик был не по нашему блоку
+            &&
+            div.has(e.target).length === 0) { // и не по его дочерним элементам
+            div.fadeOut("slow"); // скрываем его
+            $('.catalog-select').children('img').removeClass('catalog-menu-img-active'); // возвращаем в нужное положение иконку
+        }
+    });
+
 
 });

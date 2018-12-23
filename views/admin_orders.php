@@ -9,6 +9,6 @@
 <?php 
 foreach ($orders as $key => $order) {
     require '../templates/admin_order.php';
-}?> 
+}?>
         
 <?php require_once "../templates/admin_footer.php" ?> 

@@ -13,7 +13,7 @@ class Size
  
         $query = "SELECT size_id, value FROM sizes WHERE size_id=$id";
         $result = $mysqli->query($query);
- 
+       
         if ($result->num_rows > 0) {
             $size_data = $result->fetch_assoc();
  
