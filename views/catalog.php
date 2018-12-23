@@ -23,9 +23,9 @@
         <div class="catalog-select-list">
            <p class="catalog-select-list-row category_list" id="category_all">Все</p>
             <?php 
-                foreach ($categories as $category) {
-                    echo '<p class="catalog-select-list-row category_list" id=category_'.$category->id.'>'.$category->title.'</p>';
-                }
+                    foreach ($categories as $category) {
+                        echo '<p class="catalog-select-list-row category_list" id=category_'.$category->id.'>'.$category->title.'</p>';
+                    }   
             ?>
         </div>
 

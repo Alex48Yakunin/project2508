@@ -85,10 +85,21 @@
     font-style: italic;
     padding-top: 5px;
 }
-#count {
+.count {
     font-size: 20px;
     text-align: center   
 }
+
+.delet {
+    background: url(../images/icons/trash.svg) center center / contain no-repeat;
+    height: 30px;
+    width: 30px;
+    transition: 1s all;  
+}
+.delet:hover {
+    background: url(../images/icons/trash1.svg) center center / contain no-repeat;
+}
+
 #order {
     font-size: 25px;
     background-color: white;

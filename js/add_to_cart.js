@@ -21,7 +21,6 @@ $(document).ready(function () {
         size_id = $(this).data('size-id'); // получаем size_id
     })
 
-    console.log(size_id);
 
     $('.product__desc-button_link').click(function (event) {
         event.preventDefault();
