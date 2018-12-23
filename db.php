@@ -1,11 +1,9 @@
 <?php
 
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$db = 'shop2508';
+require_once 'config.php';
 
-$mysqli = new mysqli($host, $user, $password, $db);
+
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $mysqli->set_charset('utf8');
 
 if ($mysqli->connect_error) {
