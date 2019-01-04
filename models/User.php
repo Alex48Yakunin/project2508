@@ -56,6 +56,28 @@ class User
             return false;
         }        
     }
+
+    public static function register($email, $pass)
+    {
+        global $mysqli;
+
+        if(!self::getByEmail($email)) {
+            $pass = password_hash($pass, PASSWORD_BCRYPT);
+
+            $query = "INSERT INTO users (email, pass)
+                      VALUES ('$email', '$pass')";
+            $result = $mysqli->query($query);
+
+            if($result) {
+                $user = self::getByEmail($email);
+                return $user->id;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }
 
 // $user = new User(1);
@@ -64,5 +86,8 @@ class User
 // $users = User::getAll();
 // var_dump($users);
 // $user = User::getByEmail('admin@admin.ru');
+// echo '<pre>';
+// var_dump($user);
+// $user = User::register("qwerty@protonmail.com", "456");
 // echo '<pre>';
 // var_dump($user);
