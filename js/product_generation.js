@@ -5,27 +5,41 @@ $(document).ready(function () {
     var collection = $('.collection_id').attr('id');
     collection = collection.match(/\d+/);
     collection = Number.parseInt(collection);
-    
-    GetProducts(category_id, collection);
+    var price_min = Number.parseInt($('#min-price').val());
+    var price_max = Number.parseInt($('#max-price').val());
+    var title = '';
 
-    $('.category_list').click(function () {
+
+
+    GetProducts(category_id, collection, title, price_min, price_max);
+    
+    $('#seach').click(function () {
 
         $('.products').children().remove();
+        var category_id = $('#category').attr('cat');
+        category_id = ((category_id == "all")?"":Number.parseInt(category_id));
+        var collection = $('.collection_id').attr('id');
+        collection = collection.match(/\d+/);
+        collection = Number.parseInt(collection);
 
-        var category_id = $(this).attr('id');
-        category_id = category_id.match(/\d+/);
-        category_id = Number.parseInt(category_id);
+        var price_min = Number.parseInt($('#min-price').val());
+        var price_max = Number.parseInt($('#max-price').val());
+        var title = $('#seach-title').val();
 
-        GetProducts(category_id, collection)
+        GetProducts(category_id, collection, title, price_min, price_max);
+        $('#filter').text('ФИЛЬТР: НАИМЕНОВАНИЕ:'+ ((title =="")?'Все':"%"+title+"%")+'.    КАТЕГОРИЯ: '+ ((category_id =="")?'Все':$('#category').text())+'.    ЦЕНА: '+'от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');
     });
     
     
 });
 
-function GetProducts(category, collection) {
+function GetProducts(category, collection, title, price_min, price_max) {
     $.post('get_products.php', {
         category_id: category,
-        collection: collection
+        collection: collection,
+        title: title,
+        price_min: price_min,
+        price_max: price_max
     }, function (data) {
         var products = JSON.parse(data);
 
@@ -38,5 +52,12 @@ function GetProducts(category, collection) {
                 '</a>'
             );
         });
+
+        if (products.length == 0) {
+            $('.products').append(
+            '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
+            );
+        }
+        
     });
 }

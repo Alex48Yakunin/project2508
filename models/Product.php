@@ -32,7 +32,7 @@ class Product
         }
     }
 
-    public static function getAll($collection = false, $category_id = false, $order_id = false)
+    public static function getAll($collection = false, $category_id = false, $order_id = false, $title = false, $price_min = false, $price_max = false)
     {
         global $mysqli;
 
@@ -50,6 +50,14 @@ class Product
             $conditions .= " AND op.order_id=$order_id AND op.product_id=p.product_id";
         }
 
+        if ($title !== false) {
+           $conditions .= " AND p.title LIKE '%$title%'";
+        }
+        
+        if ($price_min !== false && $price_max !== false) {
+            $conditions .= " AND p.price >= $price_min AND p.price <= $price_max";
+         }
+         
         $query = "SELECT p.product_id FROM $tables WHERE 1 $conditions";
         $result = $mysqli->query($query);
 

@@ -81,29 +81,33 @@ $(document).ready(function () {
     // обработчики ограницений ввода максимальной и минимальной цены
 
     $('#min-price').change(function() {
-        if ($(this).val() < $(this).attr('min')) {$(this).val($(this).attr('min'))};
-        if ($(this).val() > $(this).attr('maх')) {$(this).val($(this).attr('max'))};
-        console.log($(this).attr('max'));
-        console.log($(this).attr('min'));
-        
+        var min = Number.parseInt($(this).attr('min'));
+        var max = Number.parseInt($(this).attr('max'));
+        var min_in = Number.parseInt($(this).val());
+        if (min_in < min) {$(this).val(min);};
+        if (min_in > max) {$(this).val(max)};
+        if (min_in > Number.parseInt($('#max-price').val())) {$(this).val($('#max-price').val())};
+        $('#price').text('от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');
+               
     });
 
-    $('#maх-price').change(function() {
-        if ($(this).val() < $(this).attr('min')) {$(this).val($(this).attr('min'))};
-        if ($(this).val() > $(this).attr('maх')) {$(this).val($(this).attr('max'))};
-        console.log($(this).attr('max'));
-        console.log($(this).attr('min'));
-        
+    $('#max-price').change(function() {
+        var min = Number.parseInt($(this).attr('min'));
+        var max = Number.parseInt($(this).attr('max'));
+        var max_in = Number.parseInt($(this).val());
+        if (max_in < min) {$(this).val(min);};
+        if (max_in > max) {$(this).val(max)};
+        if (max_in < Number.parseInt($('#min-price').val())) {$(this).val($('#min-price').val())};
+        $('#price').text('от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');   
     });
 
 
     $('.catalog-select-list-row').click(function () {
 
-        if ($(this).hasClass('catalog-size') == true) {
-            $(this).parent().prev('.catalog-select').children('p').text('Размер: ' + $(this).text());
-        } else {
-            $(this).parent().prev('.catalog-select').children('p').text($(this).text());
-        }
+      
+        $(this).parent().prev('.catalog-select').children('p').text($(this).text());
+        $(this).parent().prev('.catalog-select').children('p').attr('cat', $(this).attr('cat'));
+       
 
         $(this).parent('.catalog-select-list').css('display', 'none');
 

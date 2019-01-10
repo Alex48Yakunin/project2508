@@ -19,8 +19,15 @@ $price = array();
 foreach ($products as $key => $product) {
     $price[$key] = $product->price;
 }
+
+if ($price == []) {
+$max_price = '';
+$min_price = '';   
+}
+else{
 $max_price = max($price);
 $min_price = min($price);
+}
 
 require_once '../models/Collection.php';
 $collection_id = new Collection($collection);

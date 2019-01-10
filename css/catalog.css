@@ -153,6 +153,21 @@ a{
     width: 100px;
 }
 
+#seach {
+    font-family: georgia;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#seach:hover {
+    color: #fd0505bf;
+}
+
 .catalog-select img{
     width: 14px;
     height: 14px;
