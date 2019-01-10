@@ -32,9 +32,13 @@ class Product
         }
     }
 
-    public static function getAll($collection = false, $category_id = false, $order_id = false, $title = false, $price_min = false, $price_max = false)
+    public static function getAll($collection = false, $category_id = false, $order_id = false, $title = false, $price_min = false, $price_max = false, $page = false, $count_items = false)
     {
         global $mysqli;
+
+        if ($page !== false) {
+            --$page;
+        }
 
         $conditions = "";
         $tables = "products p";
@@ -57,8 +61,21 @@ class Product
         if ($price_min !== false && $price_max !== false) {
             $conditions .= " AND p.price >= $price_min AND p.price <= $price_max";
          }
+
+         $query = "SELECT COUNT(*) as count FROM products";
+         $result = $mysqli->query($query);
+         $count_data = $result->fetch_assoc();
+         if ($count_data['count'] < $page * $count_items) {
+             return false;
+         }
+ 
+         if ($page !== false) {
+             $limit = " LIMIT " . ($page * $count_items) . ", " . $count_items;
+         } else {
+             $limit = "";
+         }
          
-        $query = "SELECT p.product_id FROM $tables WHERE 1 $conditions";
+        $query = "SELECT p.product_id FROM $tables WHERE 1 $conditions $limit";
         $result = $mysqli->query($query);
 
         $products = [];
@@ -66,7 +83,12 @@ class Product
             $products[] = new self($product_data['product_id']);
         }
 
-        return $products;
+        return 
+        [
+            'products' => $products;, 
+            'count' => $count_data['count']
+        ];
+        
     }
 }
 
