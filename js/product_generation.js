@@ -50,6 +50,7 @@ function GetProducts(category, collection) {
                     '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
                     '<p class="products-item-title">' + product.title + '</p>' +
                     '<p class="products-item-price">' + product.price + '</p>' +
+                    '<p class="products-item-cart"></p>' +
                     '</a>'
                 );
             });
