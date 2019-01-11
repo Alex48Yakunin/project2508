@@ -40,6 +40,9 @@
                     <button type="submit" class="btn btn-primary">Войти</button>
                 </form>
             </div>
+            <div class="error">
+                <?php echo $error_title ?>
+            </div>
         </section>
     </main>
 

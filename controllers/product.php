@@ -1,7 +1,12 @@
 <?php
 
-require_once "../models/Product.php";
+session_start();
 
+if(!isset($_SESSION['user_id'])) {
+    header('Location: auth.php?error=3');
+}
+
+require_once "../models/Product.php";
 
 $product = new Product($_GET['product_id']);
 $site_page_title = $product->title;

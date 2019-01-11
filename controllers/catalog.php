@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+
+if(!isset($_SESSION['user_id'])) {
+    header('Location: auth.php?error=3');
+}
+
 $collection = (((isset($_GET['collection'])) && $_GET['collection'] !== "")?$_GET['collection']:false);
 $category_id = (((isset($_GET['category_id'])) && $_GET['category_id'] !== "")?$_GET['category_id']:false);
 $order_id = (((isset($_GET['order_id'])) && $_GET['order_id'] !== "")?$_GET['order_id']:false);

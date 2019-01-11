@@ -2,6 +2,8 @@
 
 require_once '../models/User.php';
 
+session_start();
+
 $email = $_POST['email'];
 $pass = $_POST['pass'];
 
@@ -17,11 +19,16 @@ if (!empty($email) && !empty($pass)) {
             header('Location: catalog.php');
         }
 
+        $_SESION['user_id'] = $user->user_id;
+        $_SESSION['name'] = $user->name;
+        $_SESION['email'] = $user->email;
+        $_SESION['role'] = $user->role;
+
     } else {
-        header('Location: auth.php');
+        header('Location: auth.php?error=2');
     }
 
 } else {
-    header('Location: auth.php');
+    header('Location: auth.php?error=1');
     exit;
 }

@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if(!isset($_SESSION['user_id'])) {
+    header('Location: auth.php?error=3');
+} else if ($_SESSION['role'] !==1) {
+    header('Location: catalog.php')
+}
 
 require_once "../models/Order.php"; 
 
