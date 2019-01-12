@@ -1,4 +1,7 @@
 <?php
+
+
+
 require_once '../models/Product.php';
 $product_id = $_REQUEST['product_id'];
 $title = $_REQUEST['title'];
