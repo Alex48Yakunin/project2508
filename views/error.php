@@ -24,7 +24,7 @@
 
 
 <script src="../lib/jquery-3.3.1.js"></script>
-<script src="../js/404error.js"></script>
+<script src="../js/error.js"></script>
 
 </body>
 
