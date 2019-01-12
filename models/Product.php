@@ -39,7 +39,7 @@ class Product
         if ($page !== false) {
             --$page;
         }
-
+                
         $conditions = "";
         $tables = "products p";
 
@@ -60,19 +60,27 @@ class Product
         
         if ($price_min !== false && $price_max !== false) {
             $conditions .= " AND p.price >= $price_min AND p.price <= $price_max";
-         }
+        }
 
-         $query = "SELECT COUNT(*) as count FROM products";
-         $result = $mysqli->query($query);
-         $count_data = $result->fetch_assoc();
-         if ($count_data['count'] < $page * $count_items) {
-             return false;
+        $query = "SELECT MAX(price) as max_price FROM $tables WHERE 1 $conditions";
+        $result = $mysqli->query($query);
+        $max_price = $result->fetch_assoc();
+                  
+        $query = "SELECT MIN(price) as min_price FROM $tables WHERE 1 $conditions";
+        $result = $mysqli->query($query);
+        $min_price = $result->fetch_assoc();
+       
+        $query = "SELECT COUNT(*) as count FROM $tables WHERE 1 $conditions";
+        $result = $mysqli->query($query);
+        $count_data = $result->fetch_assoc();
+        if ($count_data['count'] < $page * $count_items) {
+            return false;
          }
  
          if ($page !== false) {
              $limit = " LIMIT " . ($page * $count_items) . ", " . $count_items;
          } else {
-             $limit = "";
+             $limit = " LIMIT " . 0 . ", " . $count_items;;
          }
          
         $query = "SELECT p.product_id FROM $tables WHERE 1 $conditions $limit";
@@ -82,11 +90,14 @@ class Product
         while ($product_data = $result->fetch_assoc()) {
             $products[] = new self($product_data['product_id']);
         }
+        
 
         return 
         [
-            'products' => $products;, 
-            'count' => $count_data['count']
+            'products' => $products, 
+            'count' => $count_data['count'],
+            'max_price' => $max_price['max_price'],
+            'min_price' => $min_price['min_price'],
         ];
         
     }

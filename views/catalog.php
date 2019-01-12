@@ -7,7 +7,7 @@
 
 <div class="title">
     <?php 
-        echo '<h1 class="collection_id" id="collection_'.$collection_id->id.'">'.$collection_id->title.'</h1>'
+        echo '<h1 class="collection_id" id="collection_'.$collection_id->id.' limit = "'.$limit_products.'">'.$collection_id->title.'</h1>'
     ?>
     <p id = "filter">Все товары</p>
 </div>
@@ -78,8 +78,17 @@
 </div>
 
 <div class="pages">
-    <div class="pages-item"> 1 </div>
-    <div class="pages-item"> 2 </div>
+
+<?php
+    $pages = ceil($count_products / $limit_products);
+    for ($i = 1; $i <= $pages; $i++) {
+        if ($i == $page) {
+            echo '<div class="pages-item1">'.$i.'</div>';
+        } else {
+            echo '<div class="pages-item">'.$i.'</div>';
+        }
+    }
+?>
 </div>
 
 <script src="../lib/jquery-3.3.1.js"></script>

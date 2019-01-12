@@ -74,6 +74,16 @@ a{
   transition: .3s;
 }
 
+.pages-item1 {
+    margin: 5px;
+    padding: 5px 8px;
+    border: 2px solid black;
+    font-size: .6em;
+    background-color: rgba(158, 4, 4, 0.555);
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
 .pages .pages-item:hover {
   -webkit-transform: scale(1.1, 1.1);
           transform: scale(1.1, 1.1);
