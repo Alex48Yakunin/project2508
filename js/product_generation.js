@@ -81,8 +81,20 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
 
         if (products.length == 0) {
             $('.products').append(
-            '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
-            );
+
+                '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
+            ); // если нет продуктов
+        } else {
+            products.forEach(function (product) {
+                $('.products').append(
+                    '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
+                    '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
+                    '<p class="products-item-title">' + product.title + '</p>' +
+                    '<p class="products-item-price">' + product.price + '</p>' +
+                    '<p class="products-item-cart"></p>' +
+                    '</a>'
+                );
+            });
         }
     })
     }
