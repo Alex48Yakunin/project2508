@@ -19,10 +19,10 @@ if (!empty($email) && !empty($pass)) {
             header('Location: catalog.php');
         }
 
-        $_SESION['user_id'] = $user->user_id;
+        $_SESSION['user_id'] = $user->user_id;
         $_SESSION['name'] = $user->name;
-        $_SESION['email'] = $user->email;
-        $_SESION['role'] = $user->role;
+        $_SESSION['email'] = $user->email;
+        $_SESSION['role'] = $user->role;
 
     } else {
         header('Location: auth.php?error=2');
