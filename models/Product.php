@@ -32,10 +32,14 @@ class Product
         }
     }
 
-    public static function getAll($collection = false, $category_id = false, $order_id = false)
+    public static function getAll($collection = false, $category_id = false, $order_id = false, $title = false, $price_min = false, $price_max = false, $page = false, $count_items = false)
     {
         global $mysqli;
 
+        if ($page !== false) {
+            --$page;
+        }
+                
         $conditions = "";
         $tables = "products p";
 
@@ -50,15 +54,52 @@ class Product
             $conditions .= " AND op.order_id=$order_id AND op.product_id=p.product_id";
         }
 
-        $query = "SELECT p.product_id FROM $tables WHERE 1 $conditions";
+        if ($title !== false) {
+           $conditions .= " AND p.title LIKE '%$title%'";
+        }
+        
+        if ($price_min !== false && $price_max !== false) {
+            $conditions .= " AND p.price >= $price_min AND p.price <= $price_max";
+        }
+
+        $query = "SELECT MAX(price) as max_price FROM $tables WHERE 1 $conditions";
+        $result = $mysqli->query($query);
+        $max_price = $result->fetch_assoc();
+                  
+        $query = "SELECT MIN(price) as min_price FROM $tables WHERE 1 $conditions";
+        $result = $mysqli->query($query);
+        $min_price = $result->fetch_assoc();
+       
+        $query = "SELECT COUNT(*) as count FROM $tables WHERE 1 $conditions";
+        $result = $mysqli->query($query);
+        $count_data = $result->fetch_assoc();
+        if ($count_data['count'] < $page * $count_items) {
+            return false;
+         }
+ 
+         if ($page !== false) {
+             $limit = " LIMIT " . ($page * $count_items) . ", " . $count_items;
+         } else {
+             $limit = " LIMIT " . 0 . ", " . $count_items;;
+         }
+         
+        $query = "SELECT p.product_id FROM $tables WHERE 1 $conditions $limit";
         $result = $mysqli->query($query);
 
         $products = [];
         while ($product_data = $result->fetch_assoc()) {
             $products[] = new self($product_data['product_id']);
         }
+        
 
-        return $products;
+        return 
+        [
+            'products' => $products, 
+            'count' => $count_data['count'],
+            'max_price' => $max_price['max_price'],
+            'min_price' => $min_price['min_price'],
+        ];
+        
     }
 
     public function add($title, $description, $image, $price, $category_id, $collection)

@@ -52,15 +52,6 @@ $(document).ready(function() {
         xhr.setRequestHeader("Content-type", "application/json");
         console.log (cart_account);
         xhr.send(cart_account);
-            xhr.onreadystatechange = function() {
-            if (xhr.readyState != 4) {
-                return;
-            }}
-
-        var session = JSON.parse(xhr.responseText);
-
-        console.log(session);
-
         return false;
     });
     var last = 1;
@@ -80,20 +71,9 @@ $(document).ready(function() {
         xhr.open('POST', '../controllers/delet_cart.php', true);
         xhr.setRequestHeader("Content-type", "application/json");
         console.log (cart_account);
-        xhr.send(cart_account);
-        //     xhr.onreadystatechange = function() {
-        //     if (xhr.readyState != 4) {
-        //         return;
-        //     }}
-
-        // var session = JSON.parse(xhr.responseText);
-
-        // console.log(session);
-        
+        xhr.send(cart_account);          
         window.location.reload(true);
-
-        return;
-
+        return false;    
     });
     
     $('#order').click(function() {

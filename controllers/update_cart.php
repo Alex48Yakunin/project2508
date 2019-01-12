@@ -12,5 +12,5 @@ foreach ($cart_up as $key => $up) {
     $_SESSION['cart'][$key]['count'] = $up['count'];
 }
 
-echo json_encode ($_SESSION ['cart']);
+echo true;
 die;

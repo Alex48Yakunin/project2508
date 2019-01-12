@@ -26,7 +26,7 @@ echo (
 </div>
 <div class="card-table-cell2">'.$cart['price'].'</div>
 <div class="card-table-cell3">
-<input type="number" step="1" min="1" max="10" value="'.$cart['count'].'" class="count" name="count"/>
+<input type="number" step="1" min="0" max="10" value="'.$cart['count'].'" class="count" name="count"/>
 <input type="button" class="delet"/>
 </div>
 <div class="card-table-cell4">200</div>
