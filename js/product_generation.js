@@ -31,6 +31,7 @@ $(document).ready(function () {
         GetProducts(category_id, collection, title, price_min, price_max, page);
         $('#filter').text('ФИЛЬТР: НАИМЕНОВАНИЕ:'+ ((title =="")?'Все':"%"+title+"%")+'.    КАТЕГОРИЯ: '+ ((category_id =="")?'Все':$('#category').text())+'.    ЦЕНА: '+'от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');
         window.history.pushState(category_id, "Title", "?collection=" + collection + "&category_id=" + category_id); // подмена url
+
     });
     
 
@@ -84,5 +85,25 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
             '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
             );
         }
-    })
+
+        $('.pages').children().remove();
+
+        var limit_products = Number.parseInt($('.collection_id').data('limit'));
+        console.log ($('.collection_id'));
+
+        var pages = Math.ceil(data.count / limit_products);
+
+                console.log (pages);
+
+        for (var i = 1; i <= pages; i++) {
+        if (i == page) {
+            $('.pages').append(
+            '<div class="pages-item1">'+ i +'</div>'
+            );
+        } else {
+            $('.pages').append(
+                '<div class="pages-item">'+ i +'</div>'   
+            )}
+        }
+    });
     }

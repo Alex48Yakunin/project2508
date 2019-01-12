@@ -7,7 +7,7 @@
 
 <div class="title">
     <?php 
-        echo '<h1 class="collection_id" id="collection_'.$collection_id->id.' limit = "'.$limit_products.'">'.$collection_id->title.'</h1>'
+        echo '<h1 class="collection_id" id="collection_'.$collection_id->id.'" data-limit="'.$limit_products.'">'.$collection_id->title.'</h1>'
     ?>
     <p id = "filter">Все товары</p>
 </div>
