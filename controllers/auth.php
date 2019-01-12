@@ -1,6 +1,7 @@
 <?php
 
 $error = isset($_GET['error']) ? $_GET['error'] : '0';
+$error_title = '';
 
 switch ($error) {
     case '0': break;
