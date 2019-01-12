@@ -46,14 +46,68 @@ $(document).ready(function () {
 
     });
 
+   
+    // спец обработчи для ценны на основе вырезки из обработчика Сергей
+
+    $('.catalog-select-price').click(function () {
+
+        var menu_list = $(this).next('.catalog-select-list-price');
+        var row = $(this).next('.catalog-select-list-price').children('.catalog-select-list-row');
+
+        var count_rows = row.length;
+        var rows_hight = row.css('height');
+
+        count_rows = Number.parseInt(count_rows);
+        rows_hight = Number.parseInt(rows_hight);
+
+        var list_height = 8 + count_rows * rows_hight;
+
+        menu_list.css('bottom', '-' + list_height + 'px');
+
+        /////////////    Переворот кнопки и раскрытие списка ///////////////
+
+        if (menu_list.css('display') == 'none') {
+            menu_list.css('display', 'block');
+            $(this).children('img').addClass('catalog-menu-img-active');
+        
+        } else {
+
+            menu_list.css('display', 'none');
+            $(this).children('img').removeClass('catalog-menu-img-active');
+            $('#price').text('от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');
+        }
+    });
+
+    // обработчики ограницений ввода максимальной и минимальной цены
+
+    $('#min-price').change(function() {
+        var min = Number.parseInt($(this).attr('min'));
+        var max = Number.parseInt($(this).attr('max'));
+        var min_in = Number.parseInt($(this).val());
+        if (min_in < min) {$(this).val(min);};
+        if (min_in > max) {$(this).val(max)};
+        if (min_in > Number.parseInt($('#max-price').val())) {$(this).val($('#max-price').val())};
+        $('#price').text('от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');
+               
+    });
+
+    $('#max-price').change(function() {
+        var min = Number.parseInt($(this).attr('min'));
+        var max = Number.parseInt($(this).attr('max'));
+        var max_in = Number.parseInt($(this).val());
+        if (max_in < min) {$(this).val(min);};
+        if (max_in > max) {$(this).val(max)};
+        if (max_in < Number.parseInt($('#min-price').val())) {$(this).val($('#min-price').val())};
+        $('#price').text('от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');   
+    });
+
 
     $('.catalog-select-list-row').click(function () {
 
-        if ($(this).hasClass('catalog-size') == true) {
-            $(this).parent().prev('.catalog-select').children('p').text('Размер: ' + $(this).text());
-        } else {
-            $(this).parent().prev('.catalog-select').children('p').text($(this).text());
-        }
+      
+        $(this).parent().prev('.catalog-select').children('p').text($(this).text());
+        $(this).parent().prev('.catalog-select').children('p').attr('cat', $(this).attr('cat'));
+       
 
         $(this).parent('.catalog-select-list').css('display', 'none');
 
