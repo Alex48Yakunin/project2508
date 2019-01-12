@@ -26,9 +26,9 @@
                 <div class="header-nav__item">
                     <a href="../controllers/auth.php" class="header-nav__link header-nav__link_come">Войти</a>
                     <a href="../controllers/handler_unauth.php" class="header-nav__link header-nav__link_come">Выйти</a>
-                    <a href="../views/cart.php" class="header-nav__link header-nav__link_cart">
+                    <a href="../controllers/cart.php" class="header-nav__link header-nav__link_cart">
                         Корзина
-                        <span class="header-nav__cart-count">(0)</span>
+                        <span class="header-nav__cart-count">(<?=$count_cart?>)</span>
                     </a>
                 </div>
             </div>

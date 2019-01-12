@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    font-family: cursive;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 0.74);
+    text-align: center;
+    user-select: none;
+}
+body{
+    background: #e3e3e3;
+}
+h1{
+    font-size: 110px;
+    letter-spacing: 5px;
+    line-height: 1em;
+    margin-top: 60px;
+}
+span{
+    font-size: 42px;
+}
+h2{
+    margin: 40px 0;
+}
+#error_timer{
+    margin: 0 5px;
+    
+}
+img{
+    position: absolute;
+    top: 324px;
+    left: 78px;
+    bottom: 0px;
+    margin: auto;
+    width: 340px;
+    height: 395px;
+}

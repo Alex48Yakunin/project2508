@@ -8,7 +8,9 @@ if(!isset($_SESSION['user_id'])) {
     header('Location: catalog.php')
 }
 
-require_once "../models/Order.php"; 
+require_once "../config.php";
+require_once "../models/Order.php";
+require_once "../models/User.php"; 
 
 if (isset($_GET['status']) && $_GET['status'] != "") {
     $status = $_GET['status'];
@@ -21,7 +23,14 @@ if (isset($_GET['user_id']) && $_GET['user_id'] != "") {
     $user_id = false;
 }
 
-$orders = Order::getAll($status, $user_id);
+$page = $_GET['page'];
+$limit_orders = LIMIT_PAGE_ORDERS;
 
-require_once "../views/admin_orders.php"; 
+$users = User::getAll();
 
+$data = Order::getAll($status, $user_id, $page, $limit_orders);
+
+$orders = $data['orders'];
+$count_orders = $data['count'];
+
+require_once "../views/admin_orders.php";

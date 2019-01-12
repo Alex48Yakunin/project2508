@@ -1,0 +1,124 @@
+#ajax-loader{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba(253, 253, 253, 0.6);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+#ajax-loader div{
+    width: 21px;
+    margin: 0 1px;
+    height: 4px;
+    background: green;
+}
+.ajax_anim{
+    animation: change_height  0.5s infinite ease;
+}
+#ajax-loader #anim_start{
+    background-color: rgba(65, 57, 90, 0.88);
+    animation: change_height_start  0.5s infinite ease;
+}
+#ajax-loader .ajax-col-1{
+    background-color: #754fa0;
+    animation-delay: 0.03s;
+}
+#ajax-loader .ajax-col-2{
+    background-color: #09b7bf;
+    animation-delay: 0.05s;
+}
+#ajax-loader .ajax-col-3{
+    background-color: #90d36b;
+    animation-delay: 0.1s;
+}
+#ajax-loader .ajax-col-4{
+    background-color: #f2d40d;
+    animation-delay: 0.15s;
+}
+#ajax-loader .ajax-col-5{
+    background-color: #fcb12b;
+    animation-delay: 0.2s;
+}
+#ajax-loader .ajax-col-6{
+    background-color: #ed1b72;
+    animation-delay: 0.25s;
+}
+#ajax-loader #anim_end{
+    animation: change_height_start  0.5s infinite ease;
+    animation-delay: 0.27s;
+    background-color: #ff1800;
+}
+
+
+@keyframes change_height {
+    0%{
+        height: 4px;
+    }
+    10%{
+        height: 8px;
+    }
+    20%{
+        height: 20px;
+    }
+    30%{
+        height: 70px;
+    }
+    37.5%{
+        height: 90px;
+    }
+    50%{
+        height: 70px;
+    }
+    60%{
+        height: 20px;
+    }
+    65%{
+        height: 8px;
+    }
+    75%{
+        height: 4px;
+    }
+    100%{
+        height: 3px;
+    }
+}
+
+@keyframes change_height_start {
+    0%{
+        height: 4px;
+    }
+    10%{
+        height: 8px;
+    }
+    20%{
+        height: 10px;
+    }
+    30%{
+        height: 40px;
+    }
+    37.5%{
+        height: 60px;
+    }
+    50%{
+        height: 40px;
+    }
+    60%{
+        height: 10px;
+    }
+    65%{
+        height: 8px;
+    }
+    75%{
+        height: 4px;
+    }
+    100%{
+        height: 3px;
+    }
+}

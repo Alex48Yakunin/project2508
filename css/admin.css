@@ -60,3 +60,175 @@ nav{
     width: 64px;
     height: 64px;
 }
+#div-product-create{
+    display: none;
+}
+#div-product-create label{
+    margin: 10px;
+}
+.products-table{
+    margin-top: 20px;
+}
+#product-alert{
+    padding: .1rem .6rem;
+    font-size: .9rem;
+    font-weight: 400;
+}
+.admin-product-img{
+    margin: 20px 0;
+}
+#delete-banner{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+.picture{
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/icon/devil.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.delete-banner-inner{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    background-color: white;
+    height: 150px;
+    border: 1px solid black;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+.delete-banner-inner:before{
+    position: absolute;
+    content: '';
+    width: 200px;
+    height: 217px;
+    background-image: url(../images/icon/devil.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: -190px;
+}
+.delete-banner-inner p{
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2em;
+    font-variant: small-caps;
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+.burger-inner {
+    background-color: transparent;
+    padding: 5px;
+}  
+.burger-menu {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+} 
+.burger-menu-item {
+    padding: 5px 20px;
+}
+.dropright .dropdown-toggle::after{
+    margin-left: 10px;
+}
+.product-href{
+    color: green;
+    font-weight: 500;
+    transition: .3s;
+}
+.product-href:hover{
+    color: black;
+    text-decoration: none;
+}
+.update-banner-inner{
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    margin: 0 auto;
+}
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+#dragon{
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: -160px;
+}
+#dragon-inner{
+    position: absolute;
+    width: 170px;
+    height: 150px;
+    background-image: url(../images/icon/dragon.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: -100px;
+    top: 0;
+    animation: run-dragon 10s linear infinite;
+}
+
+@keyframes run-dragon {
+    100% {
+        left: 110%;
+    }
+}
+
+.update-banner-inner:after{
+    position: absolute;
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/icon/mistletoe.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 40%;
+    bottom: -60px;
+}
+#product-update{
+    background-color: #75cc54;
+    border: 1px solid #6CBC4A;
+    color: black;
+    transition: .3s;
+}
+#product-update:hover{
+    background-color: #F26D53;
+    border: 1px solid #D35746;
+}
+#product-back{
+    background-color: #F26D53;
+    border: 1px solid #D35746;
+    color: black;
+    transition: .3s;
+}
+#product-back:hover{
+    background-color: #75cc54;
+    border: 1px solid #6CBC4A;
+
+.row {
+    display: flex;
+    justify-content: space-around; 
+}
+
+.row1{
+    margin-bottom: 10px;
+}
+
+.text-betwen {
+    display: flex;
+    justify-content: space-between;
+}

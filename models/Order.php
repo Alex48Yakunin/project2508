@@ -10,6 +10,14 @@ class Order
     public $comment;
     public $user_id;
 
+    public static $statuses = [
+        'Ожидает подтверждения',
+        'Подтвержден',
+        'Оплачен',
+        'В пути',
+        'Доставлен',
+        'Исполнен'
+    ];
 
     public function __construct($id)
     {
@@ -28,8 +36,14 @@ class Order
 
     }
 
-    public static function getAll($status = false, $user_id = false)
+    public static function getAll($status = false, $user_id = false, $page = false, $count_items = false)
     {
+        global $mysqli;
+
+        if ($page !== false) {
+            --$page;
+        }
+
         $condition = "";
         if ($status !== false){
             $condition.= " AND status=$status"; 
@@ -37,10 +51,22 @@ class Order
         if ($user_id !== false){
             $condition.= " AND user_id=$user_id";
         }
-       
-        global $mysqli;
 
-        $query = "SELECT order_id FROM orders WHERE 1 $condition";
+        $query = "SELECT COUNT(*) as count FROM orders";
+        $result = $mysqli->query($query);
+        $count_data = $result->fetch_assoc();
+        if ($count_data['count'] < $page * $count_items) {
+            return false;
+        }
+
+        if ($page !== false) {
+            $limit = " LIMIT " . ($page * $count_items) . ", " . $count_items;
+        } else {
+            $limit = "";
+        }
+        
+
+        $query = "SELECT order_id FROM orders WHERE 1 $condition $limit";
         $result = $mysqli->query($query);
 
         $orders = [];
@@ -48,20 +74,20 @@ class Order
             $orders[] = new self($order_data['order_id']);
         }
 
-        return $orders;
+        return [
+            'orders' => $orders, 
+            'count' => $count_data['count']
+        ];
     }
 
-    public static function getStatusName($status)
+    public function getStatusName()
     {
-        $statusName = '';
-        switch ($status) {
-            case 0: $statusName = 'Ожидает подтверждения'; break;
-            case 1: $statusName = 'Подтвержден'; break;
-            case 2: $$statusName = 'Оплачен'; break;
-            case 3: $statusName = 'В пути'; break;
-            case 4: $statusName = 'Доставлен'; break;
-            case 5: $statusName = 'Исполнен'; break;
+        if(isset($this->status)) {
+            $statusName = self::$statuses[$this->status];
+        } else {
+            return false;
         }
+
         return $statusName;
     }
 
@@ -97,6 +123,6 @@ class Order
 // echo '<pre>';
 // var_dump($order);
 
-// $orders = Order::getStatusName(3);
+// $order = new Order(1);
 // echo '<pre>';
-// var_dump($orders);
+// var_dump($order->getStatusName());

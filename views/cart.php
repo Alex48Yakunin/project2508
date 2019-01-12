@@ -1,4 +1,6 @@
-<?php require_once "../templates/header.php";?>
+<?php require_once "../templates/header.php";
+
+?>
 
 <h2 class="card-heard">
     <div class="card-logo"></div>
@@ -10,64 +12,40 @@
     <div class="card-table-cell3">Кол-во</div>
     <div class="card-table-cell4">Сумма, руб.</div>
 </div>
-<div class="card-table-row">
-    <div class="card-table-cell1">
-        <div class="product-image"></div>
-        <div class="product-block">
-            <div class="product-name">Трусы мужские</div>
-            <div class="product-describe">Размер 42. Цвет серый </div>
-        </div>
+
+<?php
+foreach ($cart_view as $key => $cart) {
+echo (
+'<div class="card-table-row">
+<div class="card-table-cell1">
+    <div class="product-image" style= "background: url(../images/catalog/'.$cart['image'].') center center / contain no-repeat" ></div>
+    <div class="product-block">
+        <div class="product-name">'.$cart['title'].' '.$cart['collection'].'</div>
+        <div class="product-describe">Размер '.$cart['size'].'</div>
     </div>
-    <div class="card-table-cell2">100</div>
-    <div class="card-table-cell3">
-    <input type="number" step="1" min="1" max="10" value="1" id="count" name="count"/>
-    </div>
-    <div class="card-table-cell4">200</div>
 </div>
-<div class="card-table-row">
-    <div class="card-table-cell1">
-        <div class="product-image"></div>
-        <div class="product-block">
-            <div class="product-name">Трусы мужские</div>
-            <div class="product-describe">Размер 42. Цвет серый </div>
-        </div>
-    </div>
-    <div class="card-table-cell2">100</div>
-    <div class="card-table-cell3">
-    <input type="number" step="1" min="1" max="10" value="1" id="count" name="count"/>
-    </div>
-    <div class="card-table-cell4">200</div>
+<div class="card-table-cell2">'.$cart['price'].'</div>
+<div class="card-table-cell3">
+<input type="number" step="1" min="0" max="10" value="'.$cart['count'].'" class="count" name="count"/>
+<input type="button" class="delet"/>
 </div>
-<div class="card-table-row">
-    <div class="card-table-cell1">
-        <div class="product-image"></div>
-        <div class="product-block">
-            <div class="product-name">Трусы мужские</div>
-            <div class="product-describe">Размер 42. Цвет серый </div>
-        </div>
-    </div>
-    <div class="card-table-cell2">100</div>
-    <div class="card-table-cell3">
-    <input type="number" step="1" min="1" max="10" value="1" id="count" name="count"/>
-    </div>
-    <div class="card-table-cell4">200</div>
-</div>
-<div class="card-table-row">
-    <div class="card-table-cell1">
-        <div class="product-image"></div>
-        <div class="product-block">
-            <div class="product-name">Трусы мужские</div>
-            <div class="product-describe">Размер 42. Цвет серый </div>
-        </div>
-    </div>
-    <div class="card-table-cell2">100</div>
-    <div class="card-table-cell3">
-    <input type="number" step="1" min="1" max="10" value="1" id="count" name="count"/>
-    </div>
-    <div class="card-table-cell4">200</div>
-</div>
+<div class="card-table-cell4">200</div>
+</div>'
+);
+}
+?>
+
 <div class="card-table-result">
-    <div class="card-table-cell1"><button id="order"><p>Оформить заказ</p></button></div>
+    <div class="card-table-cell1">
+    <?php
+    if ($count_cart == 0) {
+    echo ('Корзина пуста');
+    }
+    else {
+    echo ('<button id="order"><p>Оформить заказ</p></button>');   
+    }
+    ?>
+    </div>
     <div class="card-table-cell2">Итого:</div>
     <div class="card-table-cell3">3</div>
     <div class="card-table-cell4">600</div>

@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/admin.css">
-
+    <link rel="shortcut icon" href="../admin_favicon.ico" type="image/x-icon">
     <title><?php echo "$admin_page_title" ?></title>
 </head>
 
@@ -34,15 +34,15 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Заказы
-            <span class="badge badge-success" id="new-order-count">41</span>
+            <span class="badge badge-success" id="new-order-count"><?=count($orders)?></span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="../views/admin_orders.php">Ожидают подтверждения</a>
-                <a class="dropdown-item" href="../views/admin_orders.php">В пути</a>
-                <a class="dropdown-item" href="../views/admin_orders.php">Доставлены</a>
+                <a class="dropdown-item" href="../controllers/admin_orders.php">Все заказы</a>
+                <a class="dropdown-item" href="../controllers/admin_orders.php?status=0">Ожидают подтверждения</a>
+                <a class="dropdown-item" href="../controllers/admin_orders.php?status=1">Подтверждены</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="../views/admin_users.php">Пользователи <span class="badge badge-info">21</span></a>
+            <a class="nav-link active" href="../controllers/admin_users.php">Пользователи <span class="badge badge-info"><?=count($users)?></span></a>
         </li>
     </ul>
     <div class="wrapper">
