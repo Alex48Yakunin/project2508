@@ -30,11 +30,11 @@ $data = Product::getAll($collection, $category_id, $order_id, $title, $price_min
 // var_dump ($data);
 
 
-foreach($products as $product) {
-    $category = new Category($product->category_id);
-    $product->category_id = $category->title;
-    $collection = new Collection($product->collection);
-    $product->collection = $collection->title;
-}
+// foreach($products as $product) {
+//     $category = new Category($product->category_id);
+//     $product->category_id = $category->title;
+//     $collection = new Collection($product->collection);
+//     $product->collection = $collection->title;
+// }
 
-echo json_encode($products);
+echo json_encode($data);

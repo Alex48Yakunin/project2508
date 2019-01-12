@@ -55,21 +55,6 @@ $(document).ready(function () {
         window.history.pushState(category_id, "Title", "?collection=" + collection + "&category_id=" + category_id); // подмена url
 
     });
-
-
-    
-        if ($(this).attr('id') !== 'category_all') {
-            var category_id = $(this).attr('id');
-            category_id = category_id.match(/\d+/);
-            category_id = Number.parseInt(category_id);
-        } else {
-            category_id = 0;
-        }
-        
-        GetProducts(category_id, collection)
-    });
-
-
 });
 
 function GetProducts(category, collection, title, price_min, price_max, page) {
@@ -99,6 +84,5 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
             '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
             );
         }
-        
-    });
-}
+    })
+    }
