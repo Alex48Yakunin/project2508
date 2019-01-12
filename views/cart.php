@@ -50,7 +50,7 @@ echo (
     <div class="card-table-cell3">3</div>
     <div class="card-table-cell4">600</div>
 </div>
-<form id="form-order">
+<form id="form-order" method="POST" action="../controllers/handler_order.php">
     <div class="head-form">
         <div class="header-nav-logo-small"></div>
         <div>Оформление заказа</div>
