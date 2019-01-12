@@ -73,62 +73,62 @@
             <span>Возможно вас заинтересует</span>
         </h1>
     </div>
-    <div class="basket_alert_slider_area">
-        <div class="basket_alert_additional-slider">
-            <div class="basket_alert_additional-slider_box">
+    <div class="slider_area">
+        <div class="slider">
+            <div class="slider_box">
 
-                <a href="" class="basket_alert_additional-item">
+                <a href="" class="slider-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Синяя куртка</p>
-                    <p id="basket_alert_additional_cost">3500 руб.</p>
+                    <p id="slider-item-cost">3500 руб.</p>
                 </a>
 
-                <a href="" class="basket_alert_additional-item">
+                <a href="" class="slider-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Мяч</p>
-                    <p id="basket_alert_additional_cost">500 руб.</p>
+                    <p id="slider-item-cost">500 руб.</p>
                 </a>
 
-                <a href="" class="basket_alert_additional-item">
+                <a href="" class="slider-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Штанга</p>
-                    <p id="basket_alert_additional_cost">1200 руб.</p>
+                    <p id="slider-item-cost">1200 руб.</p>
                 </a>
 
-                <a href="" class="basket_alert_additional-item">
+                <a href="" class="slider-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Гамак</p>
-                    <p id="basket_alert_additional_cost">1900 руб.</p>
+                    <p id="slider-item-cost">1900 руб.</p>
                 </a>
                 
-                <a href="" class="basket_alert_additional-item">
+                <a href="" class="slider-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Палатка</p>
-                    <p id="basket_alert_additional_cost">2500 руб.</p>
+                    <p id="slider-item-cost">2500 руб.</p>
                 </a>
                 
-                <a href="" class="basket_alert_additional-item">
+                <a href="" class="slider-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Палатка</p>
-                    <p id="basket_alert_additional_cost">2500 руб.</p>
+                    <p id="slider-item-cost">2500 руб.</p>
                 </a>
 
-                <a href="" class="basket_alert_additional-item">
+                <a href="" class="slider-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Палатка</p>
-                    <p id="basket_alert_additional_cost">2500 руб.</p>
+                    <p id="slider-item-cost">2500 руб.</p>
                 </a>
 
-                <a href="" class="basket_alert_additional-item">
+                <a href="" class="slider-item">
                     <img src="../images/catalog/1.jpg">
                     <p>Палатка</p>
-                    <p id="basket_alert_additional_cost">2500 руб.</p>
+                    <p id="slider-item-cost">2500 руб.</p>
                 </a>
 
             </div>
         </div>
-        <button id="basket_alert_additional_btn_next"></button>
-        <button id="basket_alert_additional_btn_prev"></button>
+        <button id="slider_btn_next"></button>
+        <button id="slider_btn_prev"></button>
     </div>
 
 </div>

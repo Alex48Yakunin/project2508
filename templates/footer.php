@@ -1,3 +1,72 @@
+<div class="early_seen_box">
+    <h1>
+        <span>Вы ранее смотрели</span>
+    </h1>
+    <div class="slider_area">
+        <div class="slider">
+            <div class="slider_box">
+
+                <a href="" class="slider-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Синяя куртка</p>
+                    <p id="slider-item-cost">3500 руб.</p>
+                </a>
+
+                <a href="" class="slider-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Мяч</p>
+                    <p id="slider-item-cost">500 руб.</p>
+                </a>
+
+                <a href="" class="slider-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Штанга</p>
+                    <p id="slider-item-cost">1200 руб.</p>
+                </a>
+
+                <a href="" class="slider-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Гамак</p>
+                    <p id="slider-item-cost">1900 руб.</p>
+                </a>
+                
+                <a href="" class="slider-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Палатка</p>
+                    <p id="slider-item-cost">2500 руб.</p>
+                </a>
+                
+                <a href="" class="slider-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Палатка</p>
+                    <p id="slider-item-cost">2500 руб.</p>
+                </a>
+
+                <a href="" class="slider-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Палатка</p>
+                    <p id="slider-item-cost">2500 руб.</p>
+                </a>
+
+                <a href="" class="slider-item">
+                    <img src="../images/catalog/1.jpg">
+                    <p>Палатка</p>
+                    <p id="slider-item-cost">2500 руб.</p>
+                </a>
+
+            </div>
+        </div>
+        <button id="slider_btn_next"></button>
+        <button id="slider_btn_prev"></button>
+    </div>
+</div>
+
+<script src="../lib/jquery-3.3.1.js"></script>
+<script src="../js/slider.js"></script>
+
+
+
+
 </main>
 <footer class="wrapper-inner">
     <div class="footer">

@@ -1,78 +1,23 @@
 $(document).ready(function () {
- 
-    var product_id = getUrlVars()["product_id"];
-    var size_id = $('.product__views-link:first-of-type').data('size-id');
-    $('.product__views-link:first-of-type').addClass('product__link-size');
 
-    function getUrlVars() {
-        //извлекаем get параметр product_id
-        var vars = {};
-        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-            vars[key] = value;
-        });
-        return vars;
-    }
-
-
-    $('.product__views-link').click(function (e) {
-        e.preventDefault();
-        $('.product__views-link').siblings().removeClass('product__link-size');
-        $(this).addClass('product__link-size');
-        size_id = $(this).data('size-id'); // получаем size_id
-    })
-
-
-    $('.product__desc-button_link').click(function (event) {
-        event.preventDefault();
-        $.post('add_to_cart.php', {
-            product_id: product_id,
-            size_id: size_id
-        }, function (data) {
-            if (data) {
-                $('.basket_alert').css('display', 'block');
-                showModalWindow();
-            } else {
-                alert('Что-то пошло не так...попробуйте ещё раз');
-            }
-        });
-    }) // end click
-})
-
-
-//// Модальное окно ////
-
-function showModalWindow() {
-
-    ///////////////  Кнопки  ///////////////
+    /// Кол-во отобр. вещей
+    var show_count = 6;
     
-    // Кнопка закытия окна (крестик)
-    $('#close_cross').click(function () {
-        $('.basket_alert').css('display', 'none');
-    });
-    //Кнопка продолжить покупки
-    $('.basket_alert_btns_close').click(function () {
-        $('.basket_alert').css('display', 'none');
-    });
-    //Кнопка добавить в корзину
-    $('#button_to_basket').click(function () {
-        location.href = "../controllers/cart.php";
-    });
-
     /// Размер слайдера ///
-    
-    var show_count = 4; // кол-во показ товара
     ///Кол-во товара в предложке
     var products_count = $('.slider-item').length;
+    
     //Размер 1 товара с учетом отступов css
     var width = $('.slider-item').css('width');
     width = parseInt(width);
     width = width + 16;
+    
     //Размер слайдера
     var slider_width = products_count * width;
     $('.slider_box').css('width', slider_width);
 
     //Если товара меньше 4, слайдер не должен работать
-    if (products_count <= 4){
+    if (products_count <= 6){
         $('#slider_btn_next').css('display', 'none');
     }
     
@@ -84,10 +29,7 @@ function showModalWindow() {
         var margin = $(this).prev('.slider').children('.slider_box').css('margin-left');
 
         // Точка, когда скрывается кнопка с учетом того, что видно 4 продукта
-        var hide_next_btn = -width * 3 + 'px';
-        
-        console.log(hide_next_btn);
-        console.log(margin);
+        var hide_next_btn = -width * (show_count - 5) + 'px';
 
         // Показывать кнопку назад, когда 1 и больше элементов слева
         if (margin !== 0) {
@@ -97,7 +39,7 @@ function showModalWindow() {
         //Скрывать кнопку вправо, когда там не осталось элементов
         if (margin == hide_next_btn) {
             $('#slider_btn_next').css('display', 'none');
-        }
+        };
 
         //Отступ
         margin = parseInt(margin);
@@ -145,8 +87,8 @@ function showModalWindow() {
         }, 200);
 
     });
-}
 
+});
 //Функция скрывания кнопки, пока идет анимация
 function lockButton(object_1, object_2) {
     var lockInterval = setInterval(function () {
@@ -159,4 +101,3 @@ function lockButton(object_1, object_2) {
     }, 200);
 }
 
-//////////////////  Конец модального окна  ////////////////
