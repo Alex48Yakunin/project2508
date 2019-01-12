@@ -1,16 +1,16 @@
 $(document).ready(function () {
 
     var category_id = '';
-    
+
     var collection = $('.collection_id').attr('id');
     collection = collection.match(/\d+/);
     collection = Number.parseInt(collection);
+
     if (collection == 0){collection = ''};
     var price_min = Number.parseInt($('#min-price').val());
     var price_max = Number.parseInt($('#max-price').val());
     var title = '';
     var page = 1;
-
 
     GetProducts(category_id, collection, title, price_min, price_max, page);
     
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
         GetProducts(category_id, collection, title, price_min, price_max, page);
         $('#filter').text('ФИЛЬТР: НАИМЕНОВАНИЕ:'+ ((title =="")?'Все':"%"+title+"%")+'.    КАТЕГОРИЯ: '+ ((category_id =="")?'Все':$('#category').text())+'.    ЦЕНА: '+'от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');
-        
+        window.history.pushState(category_id, "Title", "?collection=" + collection + "&category_id=" + category_id); // подмена url
     });
     
 
@@ -52,11 +52,24 @@ $(document).ready(function () {
 
         GetProducts(category_id, collection, title, price_min, price_max, page);
         $('#filter').text('ФИЛЬТР: НАИМЕНОВАНИЕ:'+ ((title =="")?'Все':"%"+title+"%")+'.    КАТЕГОРИЯ: '+ ((category_id =="")?'Все':$('#category').text())+'.    ЦЕНА: '+'от '+$('#min-price').val()+'руб.'+' до '+$('#max-price').val()+'руб.');
-        
+        window.history.pushState(category_id, "Title", "?collection=" + collection + "&category_id=" + category_id); // подмена url
+
     });
 
 
     
+        if ($(this).attr('id') !== 'category_all') {
+            var category_id = $(this).attr('id');
+            category_id = category_id.match(/\d+/);
+            category_id = Number.parseInt(category_id);
+        } else {
+            category_id = 0;
+        }
+        
+        GetProducts(category_id, collection)
+    });
+
+
 });
 
 function GetProducts(category, collection, title, price_min, price_max, page) {

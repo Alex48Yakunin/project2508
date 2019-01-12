@@ -101,6 +101,70 @@ class Product
         ];
         
     }
+
+    public function add($title, $description, $image, $price, $category_id, $collection)
+    {
+        global $mysqli;
+
+        $query = "INSERT INTO products (title, description, image, price, category_id, collection)
+                  VALUES ('$title', '$description', '$image', $price, $category_id, $collection)";
+        $result = $mysqli->query($query);
+
+        if($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function delete()
+    {
+        global $mysqli;
+
+        $id = $this->id;
+
+        $query = "DELETE FROM products WHERE product_id=$id";
+        $result = $mysqli->query($query);
+    }
+
+    public function update($title=false, $description=false, $image=false, $price=false, $category_id=false, $collection=false)
+    {
+        $id = $this->id;
+        
+        $condition = [];
+        if($title != false) {
+            $condition[] = "p.title='$title'";
+        }
+        if($description != false) {
+            $condition[] = "p.description='$description'";
+        }
+        if($image != false) {
+            $condition[] = "p.image='$image'";
+        }
+        if($price != false) {
+            $condition[] = "p.price='$price'";
+        }
+        if($category_id != false) {
+            $condition[] = "p.category_id='$category_id'";
+        }
+        if($collection != false) {
+            $condition[] = "p.collection='$collection'";
+        }
+
+        $condition = implode(",", $condition);
+
+        global $mysqli;
+
+        $query = "UPDATE products p SET $condition WHERE p.product_id=$id";
+        $result = $mysqli->query($query);
+
+        if($result) {
+            $product = new self($id);
+            return $product;
+        } else {
+            return false;
+        }
+    }
 }
 
 // $product = new Product(90);
@@ -114,3 +178,10 @@ class Product
 // $products = Product::getAllByCollection(1);
 // echo '<pre>';
 // var_dump($products);
+// $product = Product::add('Название', 'Описание', '1.jpg', 1000, 1, 1);
+// echo '<pre>';
+// var_dump($product);
+// $product = new Product(1);
+// $product->update('Название', 'Описание', false, false, false, false);
+// echo '<pre>';
+// var_dump($product);

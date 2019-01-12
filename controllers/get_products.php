@@ -19,6 +19,9 @@ $limit_products = LIMIT_PAGE;
 // $page = 1;
 
 require_once '../models/Product.php';
+require_once '../models/Category.php';
+require_once '../models/Collection.php';
+
 $site_page_title = 'Каталог товаров';
 $data = Product::getAll($collection, $category_id, $order_id, $title, $price_min, $price_max, $page, $limit_products);
 // $products = $data['products'];
@@ -26,4 +29,12 @@ $data = Product::getAll($collection, $category_id, $order_id, $title, $price_min
 
 // var_dump ($data);
 
-echo json_encode($data);
+
+foreach($products as $product) {
+    $category = new Category($product->category_id);
+    $product->category_id = $category->title;
+    $collection = new Collection($product->collection);
+    $product->collection = $collection->title;
+}
+
+echo json_encode($products);

@@ -10,8 +10,12 @@ $count_cart = count ($_SESSION['cart']);
 
 require_once "../models/Product.php";
 
+if (isset($_GET['product_id']) && $_GET['product_id'] != "") {
+    $product = new Product($_GET['product_id']);
+} else {
+    header('Location: ../views/404error.php');
+}
 
-$product = new Product($_GET['product_id']);
 $site_page_title = $product->title;
 $product_id = $product->id;
 

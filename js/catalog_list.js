@@ -119,8 +119,6 @@ $(document).ready(function () {
 
 
     // сворачивание списков при клике вне их  
-    // adding agyakunin
-
     $(document).mouseup(function (e) { // событие клика по веб-документу
         var div = $(this).find(".catalog-list-item .catalog-select-list"); // тут указываем  элемент
         if (!div.is(e.target) // если клик был не по нашему блоку
@@ -130,5 +128,6 @@ $(document).ready(function () {
             $('.catalog-select').children('img').removeClass('catalog-menu-img-active'); // возвращаем в нужное положение иконку
         }
     });
+
 
 });
