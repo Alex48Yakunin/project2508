@@ -7,7 +7,7 @@
 
 <div class="title">
     <?php 
-        echo '<h1 class="collection_id" id="collection_'.$collection_id->id.' limit = "'.$limit_products.'">'.$collection_id->title.'</h1>'
+        echo '<h1 class="collection_id" id="collection_'.$collection_id->id.'" data-limit="'.$limit_products.'">'.$collection_id->title.'</h1>'
     ?>
     <p id = "filter">Все товары</p>
 </div>
@@ -88,11 +88,9 @@
 </div>
 
 <?php require_once '../views/ajax_loader.php'; ?>
-
 <script src="../lib/jquery-3.3.1.js"></script>
-<!-- <script src="../js/ajax_loader.js"></script> -->
+<script src="../js/ajax_loader.js"></script>
 <script src="../js/product_generation.js"></script>
 <script src="../js/catalog_list.js"></script>
-
 
 <?php require_once '../templates/footer.php'; ?>

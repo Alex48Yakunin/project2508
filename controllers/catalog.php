@@ -1,11 +1,13 @@
 <?php
 
+session_start();
+
 require_once "../config.php";
 session_start();
 
 if( !isset($_SESSION['cart']) ) { 
     $_SESSION['cart'] = array();
-    }
+}
 
 $count_cart = count ($_SESSION['cart']);
 
