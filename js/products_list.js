@@ -9,37 +9,66 @@ $('#btn-product-create').click(function() {
 
 //create product
 $('#product-create').submit(function() {
-    var title = $('#title').val();
-    var description = $('#description').val();
-    var price = $('#price').val();
-    var collection = $('#collection').val();
-    var category_id = $('#category').val();
-    var data = {
-        title: title,
-        description: description,
-        price: price,
-        collection: collection,
-        category_id: category_id
-    }
-    data = JSON.stringify(data);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '../controllers/handler_product_create.php', true);
-    xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send(data);
-    xhr.onreadystatechange = function() {
-        if(xhr.readyState != 4) {
-            return;
-        }
-        if(xhr.status == 200) {
-            showHideForm();
+
+    // $.post('../controllers/handler_product_create.php', {
+    //     title, description, price, collection, category_id, upload_pic        
+    // }, function (data) {
+    //     if (data) {
+    //         $('#product-create')[0].reset();
+    //         $('#product-alert').removeClass('alert-dark alert-danger').addClass('alert-dark').text('Товар создан.');
+    //         getProducts();
+    //         hideAlert();
+    //     } else {
+    //         $('#product-alert').removeClass('alert-danger alert-dark').addClass('alert-danger').text('Ошибка. Попробуйте еще раз.');
+    //     }
+    // });
+
+    var file_data = $('#upload_pic').prop('files')[0];
+    // var form_data = new FormData();
+    $.ajax({
+        url: '../controllers/handler_product_create.php',
+        title, description, price, collection, category_id, file_data,
+        type: 'POST',
+        success: function() {
             $('#product-create')[0].reset();
             $('#product-alert').removeClass('alert-dark alert-danger').addClass('alert-dark').text('Товар создан.');
             getProducts();
             hideAlert();
-        } else {
-            $('#product-alert').removeClass('alert-danger alert-dark').addClass('alert-danger').text('Ошибка. Попробуйте еще раз.');
         }
-    }
+    })
+
+    // var title = $('#title').val();
+    // var description = $('#description').val();
+    // var price = $('#price').val();
+    // var collection = $('#collection').val();
+    // var category_id = $('#category').val();
+    // var file = $('#upload_pic').val();
+    // var data = {
+    //     title: title,
+    //     description: description,
+    //     price: price,
+    //     collection: collection,
+    //     category_id: category_id
+    // }
+    // data = JSON.stringify(data);
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('POST', '../controllers/handler_product_create.php', true);
+    // xhr.setRequestHeader("Content-type", "application/json");
+    // xhr.send(data);
+    // xhr.onreadystatechange = function() {
+    //     if(xhr.readyState != 4) {
+    //         return;
+    //     }
+    //     if(xhr.status == 200) {
+    //         showHideForm();
+        //     $('#product-create')[0].reset();
+        //     $('#product-alert').removeClass('alert-dark alert-danger').addClass('alert-dark').text('Товар создан.');
+        //     getProducts();
+        //     hideAlert();
+        // } else {
+        //     $('#product-alert').removeClass('alert-danger alert-dark').addClass('alert-danger').text('Ошибка. Попробуйте еще раз.');
+    //     }
+    // }
     
     return false;
 })

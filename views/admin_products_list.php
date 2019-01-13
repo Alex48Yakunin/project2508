@@ -28,6 +28,8 @@
         };
         ?>
       </select>
+      <label>Картинка</label>
+      <input type="file" name="upload_pic" id="upload_pic">
     </div>
     <button type="submit" class="btn btn-dark" id="product-create">Создать</button>
   </form>
