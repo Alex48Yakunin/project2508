@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../css/404Error.css">
 
-    <title>404 Ошибка</title>
+    <title><?php echo $type_error ?> Ошибка</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <h1>
         Упс...
         <br>
-        <span>Похоже такого товара нет или он был удален</span>
+        <span><?php echo $error_text ?></span>
     </h1>
     <h2>
         Через <span id="error_timer">10</span> секунд вы будете перенаправлены на главную страницу
@@ -24,7 +24,7 @@
 
 
 <script src="../lib/jquery-3.3.1.js"></script>
-<script src="../js/404error.js"></script>
+<script src="../js/error.js"></script>
 
 </body>
 

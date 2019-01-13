@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    
     i = 10;
     
     setInterval(function () {
@@ -10,4 +10,4 @@ $(document).ready(function () {
         }
     }, 1000);
 
-})
+});
