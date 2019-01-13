@@ -21,9 +21,13 @@ $limit_products = LIMIT_PAGE;
 require_once '../models/Product.php';
 require_once '../models/Category.php';
 require_once '../models/Collection.php';
+require_once '../models/Size.php';
 
 $site_page_title = 'Каталог товаров';
 $data = Product::getAll($collection, $category_id, $order_id, $title, $price_min, $price_max, $page, $limit_products);
+foreach($data['products'] as $product) {
+    $product->sizes = Size::getAll($product->id);
+}
 // $products = $data['products'];
 // $count_orders = $data['count'];
 
