@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 09 2018 г., 08:10
+-- Время создания: Янв 04 2019 г., 15:37
 -- Версия сервера: 10.1.36-MariaDB
 -- Версия PHP: 7.2.10
 
@@ -158,10 +158,10 @@ INSERT INTO `sizes` (`size_id`, `value`) VALUES
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL DEFAULT 'Пользователь',
   `email` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
-  `role` int(11) NOT NULL
+  `role` int(11) NOT NULL DEFAULT '2'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -169,7 +169,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `email`, `pass`, `role`) VALUES
-(1, 'admin', 'admin@admin.ru', '123', 1);
+(1, 'admin', 'admin@admin.ru', '123', 1),
+(2, 'Пользователь', 'qwerty@protonmail.com', '$2y$10$dJeqEb8pmXEyvB9iVyqt3efrWolfTHgd8He6rD3O6/3SnodVhH.tK', 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -252,7 +253,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

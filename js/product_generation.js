@@ -101,4 +101,4 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
             )}
         }
     });
-    }
+  }
