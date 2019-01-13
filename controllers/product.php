@@ -8,8 +8,11 @@ require_once "../models/Product.php";
 
 if (isset($_GET['product_id']) && $_GET['product_id'] != "") {
     $product = new Product($_GET['product_id']);
+    if ($product->id === null){
+        header('Location: ../controllers/error.php?error=403');
+    }
 } else {
-    header('Location: ../views/404error.php');
+    header('Location: ../controllers/error.php?error=403');
 }
 
 $site_page_title = $product->title;
