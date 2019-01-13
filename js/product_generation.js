@@ -34,8 +34,7 @@ $(document).ready(function () {
                   
     });
 
-
-    $('.pages-item').click(function () {
+    $('.pages').on("click", ".pages-item", function () {
         $('.products').children().remove();
         var category_id = $('#category').attr('cat');
         category_id = ((category_id == "all")?"":Number.parseInt(category_id));
@@ -69,22 +68,21 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
     }, function (data) {
         var data = JSON.parse(data);
         var products = data.products;
-        products.forEach(function (product) {
+        if (products.length == 0) {
             $('.products').append(
+            '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
+            );
+        } else {
+        products.forEach(function (product) {
+        $('.products').append(
                 '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
                 '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
                 '<p class="products-item-title">' + product.title + '</p>' +
                 '<p class="products-item-price">' + product.price + '</p>' +
                 '</a>'
-            );
-        });
-
-        if (products.length == 0) {
-            $('.products').append(
-            '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
-            );
+            
+        )})
         }
-
         $('.pages').children().remove();
 
         var limit_products = Number.parseInt($('.collection_id').data('limit'));
