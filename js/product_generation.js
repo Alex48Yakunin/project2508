@@ -81,15 +81,15 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
             '<h2 class="no-goods"> Извините, товары не найдены...<h2>'
             );
         } else {
-        products.forEach(function (product) {
-        $('.products').append(
+            products.forEach(function (product) {
+            $('.products').append(
                 '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
                 '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
                 '<p class="products-item-title">' + product.title + '</p>' +
                 '<p class="products-item-price">' + product.price + '</p>' +
                 '</a>'
             
-        )})
+            )});
         }
         $('.pages').children().remove();
 
@@ -98,28 +98,28 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
         var pages = Math.ceil(data.count / limit_products);
 
         for (var i = 1; i <= pages; i++) {
-        if (i == page) {
-            $('.pages').append(
-            '<div class="pages-item1">'+ i +'</div>'
-            );
-        } else {
-            products.forEach(function (product) {
-                $('.products').append(
-                    '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
-                    '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
-                    '<p class="products-item-title">' + product.title + '</p>' +
-                    '<p class="products-item-price">' + product.price + '</p>' +
-                    '<p><section>' + catalogSizes + '</section></p>' +
-                    '<p class="products-item-cart"></p>' +
-                    '</a>'
-                );
-            });
-            var catalogSizes = '';
-            products.sizes.forEach(function (size) {
-                catalogSizes += $('.products').append(
-                    '<option data-size-id = "' + size.id + '">' + size.value + '</option>'
-                );
-            });
+            if (i == page) {
+                $('.pages').append('<div class="pages-item1">'+ i +'</div>');
+            } else {
+                products.forEach(function (product) {
+                    var productSizes = '';
+                    product.sizes.forEach(function (size) {
+                        productSizes += $('.products').append(
+                            '<option data-size-id = "' + size.id + '">' + size.value + '</option>'
+                        );
+                    });
+                    $('.products').append(
+                        '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
+                        '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
+                        '<p class="products-item-title">' + product.title + '</p>' +
+                        '<p class="products-item-price">' + product.price + '</p>' +
+                        '<p><section>' + productSizes + '</section></p>' +
+                        '<p class="products-item-cart"></p>' +
+                        '</a>'
+                    );
+                });
+                
+            }
         }
     })
 }
