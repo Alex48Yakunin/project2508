@@ -84,16 +84,14 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
             products.forEach(function (product) {
                 var productSizes = '';
                 product.sizes.forEach(function (size) {
-                    productSizes += $('.products').append(
-                        '<option data-size-id = "' + size.id + '">' + size.value + '</option>'
-                    );
+                    productSizes += '<option data-size-id = "' + size.id + '">' + size.value + '</option>';
                 });
                 $('.products').append(
                     '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
                     '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
                     '<p class="products-item-title">' + product.title + '</p>' +
                     '<p class="products-item-price">' + product.price + '</p>' +
-                    '<p><section>' + productSizes + '</section></p>' +
+                    '<p class="products-item-title">' + productSizes + '</p>' +
                     '<p class="products-item-cart"></p>' +
                     '</a>'
                 );
@@ -109,10 +107,11 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
             if (i == page) {
                 $('.pages').append('<div class="pages-item1">'+ i +'</div>');
             } else {
-                
+                $('.pages').append(
+                    '<div class="pages-item">'+ i +'</div>'   
+                )} 
                 
             }
-        }
     })
 }
 
