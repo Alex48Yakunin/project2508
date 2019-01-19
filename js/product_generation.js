@@ -61,6 +61,23 @@ $(document).ready(function () {
         window.history.pushState(category_id, "Title", "?collection=" + collection + "&category_id=" + category_id); // подмена url
 
     });
+
+    $('..products').on("click", ".products-item", function () {
+        var product_id = Number.parseInt($('this').data());
+        var product_id = Number.parseInt($('this').data());
+
+        $.post('add_to_cart.php', {
+            product_id: product_id,
+            size_id: size_id
+        }, function (data) {
+            if (data) {
+                $('.basket_alert').css('display', 'block');
+                showModalWindow();
+            } else {
+                alert('Что-то пошло не так...попробуйте ещё раз');
+            }
+        });
+    }) // end click
 });
 
 
@@ -87,13 +104,13 @@ function GetProducts(category, collection, title, price_min, price_max, page) {
                     productSizes += '<option data-size-id = "' + size.id + '">' + size.value + '</option>';
                 });
                 $('.products').append(
-                    '<a href="../controllers/product.php?product_id=' + product.id + '" class="products-item">' +
+                    '<div data-product.id =' + product.id + '" class="products-item">' +
                     '<div class="products-item-photo" style="background-image: url(../images/picture/' + product.image + ')"></div>' +
                     '<p class="products-item-title">' + product.title + '</p>' +
                     '<p class="products-item-price">' + product.price + '</p>' +
                     '<p class="products-item-title">' + productSizes + '</p>' +
                     '<p class="products-item-cart"></p>' +
-                    '</a>'
+                    '</div>'
                 );
             });
         }
