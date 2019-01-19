@@ -24,8 +24,10 @@
                     <a href="" class="header-nav__link">О нас</a>
                 </div>
                 <div class="header-nav__item">
-                    <a href="../controllers/auth.php" class="header-nav__link header-nav__link_come">Войти</a>
-                    <a href="../controllers/handler_unauth.php" class="header-nav__link header-nav__link_come">Выйти</a>
+                    <!-- <a href="../controllers/auth.php" class="header-nav__link header-nav__link_come">Войти</a>
+                    <a href="../controllers/handler_unauth.php" class="header-nav__link header-nav__link_come">Выйти</a> -->
+                    <?php echo $exit ?>
+                    
                     <a href="../controllers/cart.php" class="header-nav__link header-nav__link_cart">
                         Корзина
                         <span class="header-nav__cart-count">(<?=$count_cart?>)</span>

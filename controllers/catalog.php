@@ -3,6 +3,12 @@
 require_once "../config.php";
 session_start();
 
+if(isset($_SESSION['user_id'])){
+    $exit = '<a href="../controllers/handler_unauth.php" class="header-nav__link header-nav__link_come">Выйти</a>';
+} else {
+    $exit = '<a href="../controllers/auth.php" class="header-nav__link header-nav__link_come">Войти</a>';
+}
+
 if( !isset($_SESSION['cart']) ) { 
     $_SESSION['cart'] = array();
 }
