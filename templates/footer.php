@@ -1,3 +1,31 @@
+<?php
+
+if (isset($_GET['product_id']) && $_GET['product_id'] != "") {
+    
+    $cookie_product = $_GET['product_id'];
+    
+    if ($_COOKIE['products'] !== "null"){
+        
+        $cookie_massive = [];
+        $cookie_massive = explode($_COOKIE['products']);
+        array_push($cookie_massive, $cookie_product);
+        
+        $cookie_send = $cookie_massive;
+        implode($cookie_send);
+        setcookie('products', $cookie_send, time() + 60 * 60 * 24 * 3);
+           
+    } else {
+        
+        $cookie_massive = [];
+        array_push($cookie_massive, $cookie_product);
+        setcookie('products', $cookie_product, time() + 60 * 60 * 24 * 3);
+        
+    }
+    
+}
+
+?>
+
 <div class="early_seen_box">
     <h1>
         <span>Вы ранее смотрели</span>
